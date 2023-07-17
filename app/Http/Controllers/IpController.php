@@ -42,7 +42,7 @@ class IpController extends Controller
 	
     public function update(Request $request)
     {
-        DB::table('ip')->where('ip_id',$request->id)->update([
+        DB::table('ip')->where('ip_id',$request->ip_id)->update([
             'ip_address' => $request->ip_address,
             'bagian' => $request->bagian,
             'keterangan' => $request->keterangan
