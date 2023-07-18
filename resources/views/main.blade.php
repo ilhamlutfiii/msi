@@ -65,7 +65,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Network</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="{{  url('/ip') }}">IP</a></li>
-                            <li><i class="fa fa-table"></i><a href="{{  url('/jabatan') }}">Jabatan</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{  url('/switch') }}">Switch</a></li>
                             <li><i class="fa fa-table"></i><a href="{{  url('/bidang') }}">Bidang</a></li>
                             <li><i class="fa fa-table"></i><a href="{{  url('/fungsi') }}">Fungsi</a></li>
                             <li><i class="fa fa-table"></i><a href="{{  url('/user') }}">User</a></li>

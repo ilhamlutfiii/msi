@@ -67,3 +67,11 @@ Route::post('/ip/store', '\App\Http\Controllers\IpController@store');
 Route::get('/ip/edit/{id}', '\App\Http\Controllers\IpController@edit');
 Route::post('/ip/update', '\App\Http\Controllers\IpController@update');
 Route::get('/ip/hapus/{id}', '\App\Http\Controllers\IpController@hapus');
+
+//crud switch
+Route::get('/switch', '\App\Http\Controllers\SwitchController@index');
+Route::get('/switch/tambah_switch', '\App\Http\Controllers\SwitchController@tambah_switch');
+Route::post('/switch/store', '\App\Http\Controllers\SwitchController@store');
+Route::get('/switch/edit/{id}', '\App\Http\Controllers\SwitchController@edit');
+Route::post('/switch/update', '\App\Http\Controllers\SwitchController@update');
+Route::get('/switch/hapus/{id}', '\App\Http\Controllers\SwitchController@hapus');
