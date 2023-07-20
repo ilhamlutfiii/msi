@@ -34,7 +34,7 @@ class SwitchController extends Controller
             'mac' => $request->mac,
             'macc' => $request->macc,
             'ip_id' => $request->ip_id,
-            'referensi' => $request->referensi,
+            'referensi' => $request->referensi
         ]);
 
         return redirect('/switch');
@@ -64,7 +64,7 @@ class SwitchController extends Controller
             'mac' => $request->mac,
             'macc' => $request->macc,
             'ip_id' => $request->ip_id,
-            'referensi' => $request->referensi,
+            'referensi' => $request->referensi
         ]);
        return redirect('/switch');
     }

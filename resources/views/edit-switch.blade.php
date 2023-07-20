@@ -33,21 +33,21 @@
 	@foreach($switch as $s)
 	<form action="/switch/update" method="post" class="">
 		{{ csrf_field() }}
-		<div class="form-group"><label class="form-control-label">Switch ID :</label><input type="text" name="switch_id" class="form-control"></div>
+		<div class="form-group"><label class="form-control-label">Switch ID :</label><input type="text" name="switch_id" class="form-control" value="{{ $s->switch_id }}"readonly></div>
 		
 		<div class="form-group"><label class="form-control-label">Port :</label><input type="number" name="port" class="form-control" value="{{ $s->port }}"></div>
 
-        <div class="form-group"><label class="form-control-label">Nama :</label><input type="number" name="nama" class="form-control" value="{{ $s->nama }}"></div>
+        <div class="form-group"><label class="form-control-label">Nama :</label><input type="text" name="nama" class="form-control" value="{{ $s->nama }}"></div>
 
-        <div class="form-group"><label class="form-control-label">Tipe :</label><input type="number" name="tipe" class="form-control" value="{{ $s->tipe }}"></div>
+        <div class="form-group"><label class="form-control-label">Tipe :</label><input type="text" name="tipe" class="form-control" value="{{ $s->tipe }}"></div>
 
-        <div class="form-group"><label class="form-control-label">SN :</label><input type="number" name="sn" class="form-control" value="{{ $s->sn }}"></div>
+        <div class="form-group"><label class="form-control-label">SN :</label><input type="text" name="sn" class="form-control" value="{{ $s->sn }}"></div>
 
-        <div class="form-group"><label class="form-control-label">Letak :</label><input type="number" name="letak" class="form-control" value="{{ $s->letak }}"></div>
+        <div class="form-group"><label class="form-control-label">Letak :</label><input type="text" name="letak" class="form-control" value="{{ $s->letak }}"></div>
 		
-        <div class="form-group"><label class="form-control-label">Mac :</label><input type="number" name="mac" class="form-control" value="{{ $s->mac }}"></div>
+        <div class="form-group"><label class="form-control-label">Mac :</label><input type="text" name="mac" class="form-control" value="{{ $s->mac }}"></div>
 
-        <div class="form-group"><label class="form-control-label">Macc :</label><input type="number" name="macc" class="form-control" value="{{ $s->macc }}"></div>
+        <div class="form-group"><label class="form-control-label">Macc :</label><input type="text" name="macc" class="form-control" value="{{ $s->macc }}"></div>
 
 		<div class="form-group"><label class="form-control-label">IP address :</label>
 			<select name="ip_id" id="select" class="form-control">
@@ -58,7 +58,7 @@
 			</select>
 		</div>
 
-        <div class="form-group"><label class="form-control-label">Referensi :</label><input type="number" name="referensi" class="form-control" value="{{ $s->referensi }}"></div>
+        <div class="form-group"><label class="form-control-label">Referensi :</label><input type="text" name="referensi" class="form-control" value="{{ $s->referensi }}"></div>
 		
 		<button type="submit" class="btn btn-primary btn-sm">
 			<i class="fa fa-dot-circle-o"></i> Submit
