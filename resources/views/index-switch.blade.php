@@ -1,13 +1,13 @@
 @extends('main')
 
-@section('title', 'Switch')
+@section('title', 'Insfrastruktur')
 
 @section('breadcrumbs')
 	<div class="breadcrumbs">
 		<div class="col-sm-4">
 			<div class="page-header float-left">
 				<div class="page-title">
-					<h1>Switch</h1>
+					<h1>Insfrastruktur</h1>
 				</div>
 			</div>
 		</div>
@@ -15,7 +15,7 @@
 			<div class="page-header float-right">
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
-						<li><a href="switch">Switch</a></li>
+						<li><a href="switch">Insfrastruktur</a></li>
 						<li class="active">Data Switch</li>
 					</ol>
 				</div>
