@@ -76,13 +76,13 @@ Route::get('/switch/edit/{id}', '\App\Http\Controllers\SwitchController@edit');
 Route::post('/switch/update', '\App\Http\Controllers\SwitchController@update');
 Route::get('/switch/hapus/{id}', '\App\Http\Controllers\SwitchController@hapus');
 
-//crud opersis
-Route::get('/opersis', '\App\Http\Controllers\OpersisController@index');
-Route::get('/opersis/tambah_opersis', '\App\Http\Controllers\OpersisController@tambah_opersis');
-Route::post('/opersis/store', '\App\Http\Controllers\OpersisController@store');
-Route::get('/opersis/edit/{id}', '\App\Http\Controllers\OpersisController@edit');
-Route::post('/opersis/update', '\App\Http\Controllers\OpersisController@update');
-Route::get('/opersis/hapus/{id}', '\App\Http\Controllers\OpersisController@hapus');
+//crud os
+Route::get('/os', '\App\Http\Controllers\OsController@index');
+Route::get('/os/tambah_os', '\App\Http\Controllers\OsController@tambah_os');
+Route::post('/os/store', '\App\Http\Controllers\OsController@store');
+Route::get('/os/edit/{id}', '\App\Http\Controllers\OsController@edit');
+Route::post('/os/update', '\App\Http\Controllers\OsController@update');
+Route::get('/os/hapus/{id}', '\App\Http\Controllers\OsController@hapus');
 
 //crud komputer
 Route::get('/komputer', '\App\Http\Controllers\KomputerController@index');

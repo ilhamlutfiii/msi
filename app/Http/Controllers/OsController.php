@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class osController extends Controller
+class OsController extends Controller
 {
     //index untuk os
 	public function index()

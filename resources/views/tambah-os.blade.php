@@ -33,8 +33,6 @@
 		<form action="{{  url('/os/store') }}" method="post" class="">
 			{{ csrf_field() }}
 			
-			<div class="form-group"><label class="form-control-label">OS ID</label><input type="text" name="os_id" class="form-control"></div>
-			
 			<div class="form-group"><label class="form-control-label">Nama OS</label><input type="text" name="os_name" class="form-control"></div>
 			
 			<div class="form-group"><label class="form-control-label">Ram/HDD</label><input type="text" name="ram_hdd" class="form-control"></div>

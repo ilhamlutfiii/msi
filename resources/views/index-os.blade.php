@@ -27,7 +27,7 @@
 @section('content')
 	<div class="content mt-3">
 		<div class="animated fadeIn">	
-			<a href="opersis/tambah" class="btn btn-info"> + Tambah OS Baru</a>
+			<a href="os/tambah_os" class="btn btn-info"> + Tambah OS Baru</a>
 			<br/>
 			<br/>
 			<table border="1" class="table table-striped table-bordered">
