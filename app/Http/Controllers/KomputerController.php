@@ -49,6 +49,19 @@ class KomputerController extends Controller
     
     }
     
+    public function detail($id)
+    {
+		//ambil data dari table view_komputer
+        $komputer = DB::table('view_komputer')->where('id_perangkat',$id)->get();
+		
+		//ambil data dari table ip
+        $ip = DB::table('ip')->get();
+        $os = DB::table('os')->get();
+		
+        return view('detail-komputer',['komputer' => $komputer],['ip' => $ip,'os' => $os]);
+    
+    }
+
     public function edit($id)
     {
 		//ambil data dari table view_komputer

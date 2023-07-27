@@ -42,11 +42,11 @@
             <div class="form-group"><label class="form-control-label">Kategori :</label>
                 <select name="kategori" id="select" class="form-control" >
                     <option value="{{ $k->kategori }}">{{ $k->kategori }}</option>
-				    <option value="KL">-- KL > Laptop --</option>
-                    <option value="KD">-- KD > Destop --</option>
-                    <option value="KS">-- KS > Server --</option>
-                    <option value="IOT">-- IOT > Internet of Thing --</option>
-                    <option value="VM">-- VM > Virtual Machine --</option>
+				    <option value="Laptop">-- Laptop --</option>
+                    <option value="Desktop">-- Destop --</option>
+                    <option value="Serve">-- Server --</option>
+                    <option value="Internet Of Things">-- Internet of Things --</option>
+                    <option value="Virtual Machine">-- Virtual Machine --</option>
 			    </select>
             </div>
 
@@ -87,8 +87,6 @@
             <div class="form-group"><label class="form-control-label">Macc :</label><input type="text" name="macc" class="form-control"value="{{ $k->macc }}" ></div>
 
             <div class="form-group"><label class="form-control-label">Tahun :</label><input type="text" name="tahun" class="form-control"value="{{ $k->tahun }}" ></div>
-
-            <div class="form-group"><label class="form-control-label">Berakhir :</label><input type="text" name="berakhir" class="form-control"value="{{ $k->berakhir }}" ></div>
 
 			<button type="submit" class="btn btn-primary btn-sm">
 				<i class="fa fa-dot-circle-o"></i> Submit

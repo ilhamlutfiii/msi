@@ -49,7 +49,6 @@
                     <th>Mac</th>
                     <th>Macc</th>
                     <th>Tahun</th>
-                    <th>Berakhir</th>
                     <th>Opsi</th>
 				</tr>
 				@foreach($komputer as $k)
@@ -71,10 +70,9 @@
                     <td>{{ $k->mac }}</td>
                     <td>{{ $k->macc }}</td>
                     <td>{{ $k->tahun }}</td>
-                    <td>{{ $k->berakhir }}</td>
 					<td>
+						<a href="komputer/detail/{{ $k->id_perangkat }}" class="btn btn-info"><i class="fa fa-magic">Detail</i></a>
 						<a href="komputer/edit/{{ $k->id_perangkat }}" class="btn btn-success"><i class="fa fa-magic">Edit</i></a>
-						|
 						<a href="komputer/hapus/{{ $k->id_perangkat }}" class="btn btn-danger"><i class="fa fa-magic">Hapus</i></a>
 					</td>
 				</tr>

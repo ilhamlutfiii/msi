@@ -40,6 +40,18 @@ class SwitchController extends Controller
         return redirect('/switch');
     
     }
+
+    public function detail($id)
+    {
+		//ambil data dari table view_switch
+        $switch = DB::table('view_switch')->where('switch_id',$id)->get();
+		
+		//ambil data dari table ip
+        $ip = DB::table('ip')->get();
+		
+        return view('detail-switch',['switch' => $switch], ['ip' => $ip]);
+    }
+
     
     public function edit($id)
     {

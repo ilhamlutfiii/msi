@@ -68,7 +68,6 @@
                             <li><i class="fa fa-table"></i><a href="{{  url('/switch') }}">Insfrastruktur</a></li>
                             <li><i class="fa fa-table"></i><a href="{{  url('/os') }}">OS</a></li>
                             <li><i class="fa fa-table"></i><a href="{{  url('/komputer') }}">Komputer</a></li>
-                            <li><i class="fa fa-table"></i><a href="{{  url('/user') }}">User</a></li>
                         </ul>
                     </li>
                    
