@@ -47,8 +47,16 @@ class JabatanController extends Controller
 
     public function hapus($id)
     {
-        DB::table('jabatan')->where('jabatan_id',$id)->delete();
-        return redirect('/jabatan');        
+        $jabatan_name = DB::table('jabatan')->where('jabatan_id', $id)->value('jabatan_name');
+        // Menampilkan halaman konfirmasi hapus
+        return view('hapus-jabatan', ['id' => $id, 'jabatan_name' => $jabatan_name]);
+    }
+
+    public function hapusConfirm($id)
+    {
+        DB::table('jabatan')->where('jabatan_id', $id)->delete();
+        // Alihkan kembali ke halaman utama
+        return redirect('/jabatan');
     }
 
 }

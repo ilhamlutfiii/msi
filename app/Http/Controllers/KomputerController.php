@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class KomputerController extends Controller
 {
     public function index()
@@ -42,7 +41,6 @@ class KomputerController extends Controller
             'mac' => $request->mac,
             'macc' => $request->macc,
             'tahun' => $request->tahun,
-            'berakhir' => $request->berakhir
         ]);
 
         return redirect('/komputer');
@@ -92,15 +90,23 @@ class KomputerController extends Controller
             'keterangan' => $request->keterangan,
             'mac' => $request->mac,
             'macc' => $request->macc,
-            'tahun' => $request->tahun,
-            'berakhir' => $request->berakhir
+            'tahun' => $request->tahun
         ]);
        return redirect('/komputer');
     }
-
+    
     public function hapus($id)
     {
-        DB::table('komputer')->where('id_perangkat',$id)->delete();
-        return redirect('/komputer');        
+        $hostname = DB::table('view_komputer')->where('id_perangkat', $id)->value('hostname');
+        // Menampilkan halaman konfirmasi hapus
+        return view('hapus-komputer', ['id' => $id, 'hostname' => $hostname]);
     }
+
+    public function hapusConfirm($id)
+    {
+        DB::table('komputer')->where('id_perangkat', $id)->delete();
+        // Alihkan kembali ke halaman utama
+        return redirect('/komputer');
+    }        
+    
 }

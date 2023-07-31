@@ -13,7 +13,7 @@ class UnitController extends Controller
     	$unit = DB::table('unit')->get();
  
     	// mengirim data unit ke view index
-    	return view('index',['unit' => $unit]);
+    	return view('index-unit',['unit' => $unit]);
  
     }
 	// method untuk menampilkan view form tambah unit
@@ -52,9 +52,18 @@ class UnitController extends Controller
 	return redirect('/unit');
 	 }
 
-	public function hapus($id)
-	{
-	DB::table('unit')->where('unit_id',$id)->delete();
-	return redirect('/unit');
-	}
+	 public function hapus($id)
+    {
+        $unit_name = DB::table('unit')->where('unit_id', $id)->value('unit_name');
+        // Menampilkan halaman konfirmasi hapus
+        return view('hapus-unit', ['id' => $id, 'unit_name' => $unit_name]);
+    }
+ 
+	 public function hapusConfirm($id)
+	 {
+		 DB::table('unit')->where('unit_id', $id)->delete();
+		 // Alihkan kembali ke halaman utama
+		 return redirect('/unit');
+	 }
+
 }

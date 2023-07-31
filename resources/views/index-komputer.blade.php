@@ -71,9 +71,9 @@
                     <td>{{ $k->macc }}</td>
                     <td>{{ $k->tahun }}</td>
 					<td>
-						<a href="komputer/detail/{{ $k->id_perangkat }}" class="btn btn-info"><i class="fa fa-magic">Detail</i></a>
-						<a href="komputer/edit/{{ $k->id_perangkat }}" class="btn btn-success"><i class="fa fa-magic">Edit</i></a>
-						<a href="komputer/hapus/{{ $k->id_perangkat }}" class="btn btn-danger"><i class="fa fa-magic">Hapus</i></a>
+						<a href="komputer/detail/{{ $k->id_perangkat }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
+						<a href="komputer/edit/{{ $k->id_perangkat }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
+						<a href="komputer/hapus/{{ $k->id_perangkat }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
 					</td>
 				</tr>
 				@endforeach

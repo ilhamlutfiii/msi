@@ -50,7 +50,16 @@ class OsController extends Controller
 	
 	public function hapus($id)
     {
-        DB::table('os')->where('os_id',$id)->delete();
-        return redirect('/os');        
+        $os_name = DB::table('os')->where('os_id', $id)->value('os_name');
+        $ram_hdd = DB::table('os')->where('os_id', $id)->value('ram_hdd');
+        // Menampilkan halaman konfirmasi hapus
+        return view('hapus-os', ['id' => $id, 'os_name' => $os_name, 'ram_hdd' => $ram_hdd]);
+    }
+
+    public function hapusConfirm($id)
+    {
+        DB::table('os')->where('os_id', $id)->delete();
+        // Alihkan kembali ke halaman utama
+        return redirect('/os');
     }
 }

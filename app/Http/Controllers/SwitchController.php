@@ -83,7 +83,15 @@ class SwitchController extends Controller
 
     public function hapus($id)
     {
-        DB::table('switch')->where('switch_id',$id)->delete();
-        return redirect('/switch');        
+        $nama = DB::table('view_switch')->where('switch_id', $id)->value('nama');
+        // Menampilkan halaman konfirmasi hapus
+        return view('hapus-switch', ['id' => $id, 'nama' => $nama]);
+    }
+
+    public function hapusConfirm($id)
+    {
+        DB::table('switch')->where('switch_id', $id)->delete();
+        // Alihkan kembali ke halaman utama
+        return redirect('/switch');
     }
 }

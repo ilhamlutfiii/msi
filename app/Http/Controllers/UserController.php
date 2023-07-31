@@ -73,7 +73,15 @@ class UserController extends Controller
 
     public function hapus($id)
     {
-        DB::table('user')->where('user_id',$id)->delete();
-        return redirect('/user');        
+        $user_nama = DB::table('user')->where('user_id', $id)->value('user_nama');
+        // Menampilkan halaman konfirmasi hapus
+        return view('hapus-user', ['id' => $id, 'user_nama' => $user_nama]);
+    }
+
+    public function hapusConfirm($id)
+    {
+        DB::table('user')->where('user_id', $id)->delete();
+        // Alihkan kembali ke halaman utama
+        return redirect('/user');
     }
 }

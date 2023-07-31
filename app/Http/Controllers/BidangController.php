@@ -45,10 +45,18 @@ class BidangController extends Controller
         ]);
        return redirect('/bidang');
     }
-	
+
 	public function hapus($id)
     {
-        DB::table('bidang')->where('bidang_id',$id)->delete();
-        return redirect('/bidang');        
+        $bidang_name = DB::table('bidang')->where('bidang_id', $id)->value('bidang_name');
+        // Menampilkan halaman konfirmasi hapus
+        return view('hapus-bidang', ['id' => $id, 'bidang_name' => $bidang_name]);
+    }
+
+    public function hapusConfirm($id)
+    {
+        DB::table('bidang')->where('bidang_id', $id)->delete();
+        // Alihkan kembali ke halaman utama
+        return redirect('/bidang');
     }
 }

@@ -84,8 +84,8 @@
                         
                         <tr>
                             <td>
-                                <a href="../edit/{{ $k->id_perangkat }}" class="btn btn-success"><i class="fa fa-magic"></i> Edit</a>
-                                <a href="../hapus/{{ $k->id_perangkat }}" class="btn btn-danger"><i class="fa fa-magic"></i> Hapus</a>
+                                <a href="../edit/{{ $k->id_perangkat }}" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
+                                <a href="../hapus/{{ $k->id_perangkat }}" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                             </td>
                         </tr>
                     @endforeach

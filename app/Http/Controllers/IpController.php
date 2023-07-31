@@ -49,10 +49,18 @@ class IpController extends Controller
         ]);
        return redirect('/ip');
     }
-	
-	public function hapus($id)
+
+    public function hapus($id)
     {
-        DB::table('ip')->where('ip_id',$id)->delete();
-        return redirect('/ip');        
+        $ip_address = DB::table('ip')->where('ip_id', $id)->value('ip_address');
+        // Menampilkan halaman konfirmasi hapus
+        return view('hapus-ip', ['id' => $id, 'ip_address' => $ip_address]);
+    }
+
+    public function hapusConfirm($id)
+    {
+        DB::table('ip')->where('ip_id', $id)->delete();
+        // Alihkan kembali ke halaman utama
+        return redirect('/ip');
     }
 }

@@ -27,6 +27,7 @@ Route::post('/unit/store_unit', '\App\Http\Controllers\UnitController@store_unit
 Route::get('/unit/edit/{id}','App\Http\Controllers\UnitController@edit');
 Route::post('/unit/update','App\Http\Controllers\UnitController@update');
 Route::get('/unit/hapus/{id}','App\Http\Controllers\UnitController@hapus');
+Route::get('/unit/hapus/confirm/{id}', '\App\Http\Controllers\UnitController@hapusConfirm')->name('unit.hapus.confirm');
 
 //crud jabatan
 Route::get('/jabatan','\App\Http\Controllers\JabatanController@index');
@@ -35,6 +36,7 @@ Route::post('/jabatan/store','\App\Http\Controllers\JabatanController@store');
 Route::get('/jabatan/edit/{id}','\App\Http\Controllers\JabatanController@edit');
 Route::post('/jabatan/update','\App\Http\Controllers\JabatanController@update');
 Route::get('/jabatan/hapus/{id}','\App\Http\Controllers\JabatanController@hapus');
+Route::get('/jabatan/hapus/confirm/{id}', '\App\Http\Controllers\JabatanController@hapusConfirm')->name('jabatan.hapus.confirm');
 
 //crud bidang
 Route::get('/bidang', 'App\Http\Controllers\BidangController@index');
@@ -43,6 +45,7 @@ Route::post('/bidang/store', 'App\Http\Controllers\BidangController@store');
 Route::get('/bidang/edit/{id}', 'App\Http\Controllers\BidangController@edit');
 Route::post('/bidang/update', 'App\Http\Controllers\BidangController@update');
 Route::get('/bidang/hapus/{id}', 'App\Http\Controllers\BidangController@hapus');
+Route::get('/bidang/hapus/confirm/{id}', '\App\Http\Controllers\BidangController@hapusConfirm')->name('bidang.hapus.confirm');
 
 //crud fungsi
 Route::get('/fungsi', '\App\Http\Controllers\FungsiController@index');
@@ -51,6 +54,7 @@ Route::post('/fungsi/store', '\App\Http\Controllers\FungsiController@store');
 Route::get('/fungsi/edit/{id}', '\App\Http\Controllers\FungsiController@edit');
 Route::post('/fungsi/update', '\App\Http\Controllers\FungsiController@update');
 Route::get('/fungsi/hapus/{id}', '\App\Http\Controllers\FungsiController@hapus');
+Route::get('/fungsi/hapus/confirm/{id}', '\App\Http\Controllers\FungsiController@hapusConfirm')->name('fungsi.hapus.confirm');
 
 //crud user
 Route::get('/user', '\App\Http\Controllers\UserController@index');
@@ -59,6 +63,7 @@ Route::post('/user/store', '\App\Http\Controllers\UserController@store');
 Route::get('/user/edit/{id}', '\App\Http\Controllers\UserController@edit');
 Route::post('/user/update', '\App\Http\Controllers\UserController@update');
 Route::get('/user/hapus/{id}', '\App\Http\Controllers\UserController@hapus');
+Route::get('/user/hapus/confirm/{id}', '\App\Http\Controllers\UserController@hapusConfirm')->name('user.hapus.confirm');
 
 //crud ip
 Route::get('/ip', '\App\Http\Controllers\IpController@index');
@@ -67,6 +72,7 @@ Route::post('/ip/store', '\App\Http\Controllers\IpController@store');
 Route::get('/ip/edit/{id}', '\App\Http\Controllers\IpController@edit');
 Route::post('/ip/update', '\App\Http\Controllers\IpController@update');
 Route::get('/ip/hapus/{id}', '\App\Http\Controllers\IpController@hapus');
+Route::get('/ip/hapus/confirm/{id}', '\App\Http\Controllers\IpController@hapusConfirm')->name('ip.hapus.confirm');
 
 //crud switch
 Route::get('/switch', '\App\Http\Controllers\SwitchController@index');
@@ -76,6 +82,7 @@ Route::get('/switch/detail/{id}', '\App\Http\Controllers\SwitchController@detail
 Route::get('/switch/edit/{id}', '\App\Http\Controllers\SwitchController@edit');
 Route::post('/switch/update', '\App\Http\Controllers\SwitchController@update');
 Route::get('/switch/hapus/{id}', '\App\Http\Controllers\SwitchController@hapus');
+Route::get('/switch/hapus/confirm/{id}', '\App\Http\Controllers\SwitchController@hapusConfirm')->name('switch.hapus.confirm');
 
 //crud os
 Route::get('/os', '\App\Http\Controllers\OsController@index');
@@ -84,6 +91,7 @@ Route::post('/os/store', '\App\Http\Controllers\OsController@store');
 Route::get('/os/edit/{id}', '\App\Http\Controllers\OsController@edit');
 Route::post('/os/update', '\App\Http\Controllers\OsController@update');
 Route::get('/os/hapus/{id}', '\App\Http\Controllers\OsController@hapus');
+Route::get('/os/hapus/confirm/{id}', '\App\Http\Controllers\OsController@hapusConfirm')->name('os.hapus.confirm');
 
 //crud komputer
 Route::get('/komputer', '\App\Http\Controllers\KomputerController@index');
@@ -93,3 +101,6 @@ Route::get('/komputer/detail/{id}', '\App\Http\Controllers\KomputerController@de
 Route::get('/komputer/edit/{id}', '\App\Http\Controllers\KomputerController@edit');
 Route::post('/komputer/update', '\App\Http\Controllers\KomputerController@update');
 Route::get('/komputer/hapus/{id}', '\App\Http\Controllers\KomputerController@hapus');
+Route::get('/komputer/hapus/confirm/{id}', '\App\Http\Controllers\KomputerController@hapusConfirm')->name('komputer.hapus.confirm');
+Route::get('/komputer/selectIp', '\App\Http\Controllers\KomputerController@selectIp');
+

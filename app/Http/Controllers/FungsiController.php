@@ -56,7 +56,15 @@ class FungsiController extends Controller
 
     public function hapus($id)
     {
-        DB::table('fungsi')->where('fungsi_id',$id)->delete();
-        return redirect('/fungsi');        
+        $fungsi_name = DB::table('fungsi')->where('fungsi_id', $id)->value('fungsi_name');
+        // Menampilkan halaman konfirmasi hapus
+        return view('hapus-fungsi', ['id' => $id, 'fungsi_name' => $fungsi_name]);
+    }
+
+    public function hapusConfirm($id)
+    {
+        DB::table('fungsi')->where('fungsi_id', $id)->delete();
+        // Alihkan kembali ke halaman utama
+        return redirect('/fungsi');
     }
 }

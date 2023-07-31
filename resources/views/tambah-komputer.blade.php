@@ -51,14 +51,15 @@
 
             <div class="form-group"><label class="form-control-label">Pengguna :</label><input type="text" name="pengguna" class="form-control" ></div>
 
-            <div class="form-group"><label class="form-control-label">IP Address :</label>
-                <select name="ip_id" id="select" class="form-control">
-                    <option value="0">Please select</option>
-				    @foreach($ip as $i)
-				    <option value="{{ $i->ip_id }} ">-- {{ $i->ip_address }} --</option>
-				    @endforeach
-			    </select>
-            </div>
+			<div class="form-group">
+        	<label class="form-control-label">Alamat IP :</label>
+        		<select name="ip_id" id="ip_address" class="form-control">
+            		<option value="0">Pilih alamat IP</option>
+            		@foreach($ip as $i)
+                	<option value="{{ $i->ip_id }} ">{{ $i->ip_address }}</option>
+            		@endforeach
+        		</select>
+    		</div>
 
             <div class="form-group"><label class="form-control-label">Lokasi :</label><input type="text" name="lokasi" class="form-control" ></div>
 

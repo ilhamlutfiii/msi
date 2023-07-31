@@ -13,6 +13,8 @@
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
 
+    <link rel="stylesheet" href="{{ asset('bower_components\select2\dist\css\select2.min.css') }}">
+    
     <link rel="stylesheet" href="{{ asset('style/assets/css/normalize.css')}}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/font-awesome.min.css')}}">
@@ -130,6 +132,7 @@
     <script src="{{ asset('style/assets/js/plugins.js')}}"></script>
     <script src="{{ asset('style/assets/js/main.js')}}"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script src="{{ asset('style/assets/js/lib/data-table/datatables.min.js')}}"></script>
     <script src="{{ asset('style/assets/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
@@ -149,7 +152,6 @@
           $('#bootstrap-data-table-export').DataTable();
         } );
     </script>
-
 
 </body>
 </html>

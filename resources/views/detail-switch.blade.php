@@ -62,8 +62,8 @@
                         </tr>                        
                         <tr>
                             <td>
-                                <a href="../edit/{{ $s->switch_id }}" class="btn btn-success"><i class="fa fa-magic"></i> Edit</a>
-                                <a href="../hapus/{{ $s->switch_id }}" class="btn btn-danger"><i class="fa fa-magic"></i> Hapus</a>
+                                <a href="../edit/{{ $s->switch_id }}" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
+                                <a href="../hapus/{{ $s->switch_id }}" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                             </td>
                         </tr>
                     @endforeach

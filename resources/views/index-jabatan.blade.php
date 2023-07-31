@@ -41,9 +41,9 @@
 					<td>{{ $j->jabatan_id }}</td>
 					<td>{{ $j->jabatan_name }}</td>
 					<td>
-						<a href="jabatan/edit/{{ $j->jabatan_id }}" class="btn btn-success"><i class="fa fa-magic">Edit</i></a>
+						<a href="jabatan/edit/{{ $j->jabatan_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
 						|
-						<a href="jabatan/hapus/{{ $j->jabatan_id }}" class="btn btn-danger"><i class="fa fa-magic">Hapus</i></a>
+						<a href="jabatan/hapus/{{ $j->jabatan_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
 					</td>
 				</tr>
 				@endforeach
