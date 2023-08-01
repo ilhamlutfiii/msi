@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 class KomputerController extends Controller
 {
     public function index()
@@ -24,6 +25,18 @@ class KomputerController extends Controller
 
     public function store(Request $request)
     {
+        // Validasi data formulir
+    $validator = Validator::make($request->all(), [
+        'id_perangkat' => 'required|unique:komputer',
+        // Tambahkan aturan validasi untuk kolom lain jika diperlukan
+    ]);
+
+    // Cek apakah validasi berhasil
+    if ($validator->fails()) {
+        return redirect('/komputer/tambah_komputer')
+                    ->withErrors($validator)
+                    ->withInput();
+    }
         DB::table('komputer')->insert([
             'id_perangkat' => $request->id_perangkat,
             'hostname' => $request->hostname,

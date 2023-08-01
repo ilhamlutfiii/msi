@@ -74,6 +74,15 @@ Route::post('/ip/update', '\App\Http\Controllers\IpController@update');
 Route::get('/ip/hapus/{id}', '\App\Http\Controllers\IpController@hapus');
 Route::get('/ip/hapus/confirm/{id}', '\App\Http\Controllers\IpController@hapusConfirm')->name('ip.hapus.confirm');
 
+//crud os
+Route::get('/os', '\App\Http\Controllers\OsController@index');
+Route::get('/os/tambah_os', '\App\Http\Controllers\OsController@tambah_os');
+Route::post('/os/store', '\App\Http\Controllers\OsController@store');
+Route::get('/os/edit/{id}', '\App\Http\Controllers\OsController@edit');
+Route::post('/os/update', '\App\Http\Controllers\OsController@update');
+Route::get('/os/hapus/{id}', '\App\Http\Controllers\OsController@hapus');
+Route::get('/os/hapus/confirm/{id}', '\App\Http\Controllers\OsController@hapusConfirm')->name('os.hapus.confirm');
+
 //crud switch
 Route::get('/switch', '\App\Http\Controllers\SwitchController@index');
 Route::get('/switch/tambah_switch', '\App\Http\Controllers\SwitchController@tambah_switch');
@@ -84,15 +93,6 @@ Route::post('/switch/update', '\App\Http\Controllers\SwitchController@update');
 Route::get('/switch/hapus/{id}', '\App\Http\Controllers\SwitchController@hapus');
 Route::get('/switch/hapus/confirm/{id}', '\App\Http\Controllers\SwitchController@hapusConfirm')->name('switch.hapus.confirm');
 
-//crud os
-Route::get('/os', '\App\Http\Controllers\OsController@index');
-Route::get('/os/tambah_os', '\App\Http\Controllers\OsController@tambah_os');
-Route::post('/os/store', '\App\Http\Controllers\OsController@store');
-Route::get('/os/edit/{id}', '\App\Http\Controllers\OsController@edit');
-Route::post('/os/update', '\App\Http\Controllers\OsController@update');
-Route::get('/os/hapus/{id}', '\App\Http\Controllers\OsController@hapus');
-Route::get('/os/hapus/confirm/{id}', '\App\Http\Controllers\OsController@hapusConfirm')->name('os.hapus.confirm');
-
 //crud komputer
 Route::get('/komputer', '\App\Http\Controllers\KomputerController@index');
 Route::get('/komputer/tambah_komputer', '\App\Http\Controllers\KomputerController@tambah_komputer');
@@ -102,5 +102,4 @@ Route::get('/komputer/edit/{id}', '\App\Http\Controllers\KomputerController@edit
 Route::post('/komputer/update', '\App\Http\Controllers\KomputerController@update');
 Route::get('/komputer/hapus/{id}', '\App\Http\Controllers\KomputerController@hapus');
 Route::get('/komputer/hapus/confirm/{id}', '\App\Http\Controllers\KomputerController@hapusConfirm')->name('komputer.hapus.confirm');
-Route::get('/komputer/selectIp', '\App\Http\Controllers\KomputerController@selectIp');
 

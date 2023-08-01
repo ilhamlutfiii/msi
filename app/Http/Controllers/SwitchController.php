@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class SwitchController extends Controller
 {
@@ -24,6 +25,17 @@ class SwitchController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'swtch_id' => 'required|unique:switch',
+            // Tambahkan aturan validasi untuk kolom lain jika diperlukan
+        ]);
+    
+        // Cek apakah validasi berhasil
+        if ($validator->fails()) {
+            return redirect('/switch/tambah_switch')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         DB::table('switch')->insert([
             'switch_id' => $request->switch_id,
             'port' => $request->port,
