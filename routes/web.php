@@ -103,3 +103,12 @@ Route::post('/komputer/update', '\App\Http\Controllers\KomputerController@update
 Route::get('/komputer/hapus/{id}', '\App\Http\Controllers\KomputerController@hapus');
 Route::get('/komputer/hapus/confirm/{id}', '\App\Http\Controllers\KomputerController@hapusConfirm')->name('komputer.hapus.confirm');
 
+//crud pinjam
+Route::get('/pinjam', '\App\Http\Controllers\PinjamController@index');
+Route::get('/pinjam/tambah_pinjam', '\App\Http\Controllers\PinjamController@tambah_pinjam');
+Route::post('/pinjam/store', '\App\Http\Controllers\PinjamController@store');
+Route::get('/pinjam/detail/{id}', '\App\Http\Controllers\PinjamController@detail');
+Route::get('/pinjam/edit/{id}', '\App\Http\Controllers\PinjamController@edit');
+Route::post('/pinjam/update', '\App\Http\Controllers\PinjamController@update');
+Route::get('/pinjam/hapus/{id}', '\App\Http\Controllers\PinjamController@hapus');
+Route::get('/pinjam/hapus/confirm/{id}', '\App\Http\Controllers\PinjamController@hapusConfirm')->name('pinjam.hapus.confirm');

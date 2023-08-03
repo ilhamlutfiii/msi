@@ -38,8 +38,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="{{ asset('style/images/logo.png')}}" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="{{ asset('style/images/logo2.png')}}" alt="Logo"></a>
+                <a class="navbar-brand" href="{{  url('/home') }}"><img src="{{ asset('style/images/logo.png')}}" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="{{  url('/home') }}"><img src="{{ asset('style/images/logo2.png')}}" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -69,6 +69,9 @@
                             <li><i class="fa fa-table"></i><a href="{{  url('/os') }}">OS</a></li>
                             <li><i class="fa fa-table"></i><a href="{{  url('/komputer') }}">Komputer</a></li>
                         </ul>
+                    </li>
+                    <li class="menu-item-has-children active dropdown">
+                        <a href="{{  url('/pinjam') }}" class="dropdown-toggle"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Peminjaman</a>
                     </li>
                    
 					
