@@ -101,6 +101,7 @@ Route::get('/komputer/detail/{id}', '\App\Http\Controllers\KomputerController@de
 Route::get('/komputer/edit/{id}', '\App\Http\Controllers\KomputerController@edit');
 Route::post('/komputer/update', '\App\Http\Controllers\KomputerController@update');
 Route::get('/komputer/hapus/{id}', '\App\Http\Controllers\KomputerController@hapus');
+Route::get('/inventaris/log/{id_perangkat}', 'App\Http\Controllers\InventarisController@log');
 Route::get('inventaris/komputer/hapus/confirm/{id}', '\App\Http\Controllers\KomputerController@hapusConfirm')->name('komputer.hapus.confirm');
 
 //crud pinjam
@@ -119,7 +120,7 @@ Route::get('/inventaris/tambah_inventaris', 'App\Http\Controllers\InventarisCont
 Route::post('/inventaris/store', 'App\Http\Controllers\InventarisController@store');
 Route::get('/inventaris/detail/{id}', 'App\Http\Controllers\InventarisController@detail');
 Route::get('/inventaris/edit/{id}', 'App\Http\Controllers\InventarisController@edit');
-Route::post('/inventaris/update/{id}', 'App\Http\Controllers\InventarisController@update');
+Route::post('/inventaris/update', 'App\Http\Controllers\InventarisController@update');
 Route::get('/inventaris/hapus/{id}', 'App\Http\Controllers\InventarisController@hapus');
-Route::get('/inventaris/log/{id_perangkat}', 'App\Http\Controllers\InventarisController@log');
+Route::get('/inventaris/log/{id}', 'App\Http\Controllers\InventarisController@log');
 Route::post('/inventaris/{id}/storeLog', 'App\Http\Controllers\InventarisController@storeLog')->name('store-log');

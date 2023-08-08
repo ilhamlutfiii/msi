@@ -39,7 +39,7 @@
                 <tr>
                     <th>ID Pinjam</th>
                     <th>Nama User</th>
-                    <th>Nama Komputer</th>
+                    <th>ID Perangkat</th>
                     <th>Tanggal Pinjam</th>
                     <th>Tanggal Kembali</th>
                     <th>No Tiket</th>

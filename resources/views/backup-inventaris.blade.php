@@ -1,26 +1,28 @@
 @extends('main')
 
-@section('title', 'Hapus')
+@section('title', 'Kembalikan Pinjam Inventaris')
 
 @section('content')
 <div class="content mt-3">
 	<div class="animated fadeIn">
-		<br/>
-		<br/>
 		<form method="POST" action="{{ route('store-log', ['id' => $inventarisData->inventaris_id]) }}">
 			@csrf <!-- Add this line for CSRF protection -->
 			<h2>Konfirmasi Pengembalian Inventaris</h2>
-			<p>Apakah Anda yakin ingin mengembalikan peminjaman dengan nama user {{ $inventarisData->user_nama }}?</p>
+			<p>Apakah Anda yakin ingin mengembalikan peminjaman ini?</p>
 
 			<div class="form-group">
-				<label class="form-control-label">No User :</label>
-				<input type="text" name="user_id" class="form-control" value="{{ $inventarisData->user_id }}" readonly>
-			</div>
+            <label class="form-control-label">Nama User :</label>
+        		<select name="user_id" id="user" class="form-control" readonly>
+					<option value="{{ $inventarisData->user_id }}">{{ $inventarisData->user_nama }}</option>
+        		</select>
+    		</div>
 
 			<div class="form-group">
-				<label class="form-control-label">Nama Komputer :</label>
-				<input type="text" name="id_perangkat" class="form-control" value="{{ $inventarisData->id_perangkat }}" readonly>
-			</div>
+            <label class="form-control-label">ID Perangkat :</label>
+        		<select name="komp_id" id="komp" class="form-control" readonly>
+					<option value="{{ $inventarisData->komp_id }}">{{ $inventarisData->id_perangkat }}</option>
+        		</select>
+    		</div>
 
 			<div class="form-group">
 				<label class="form-control-label">Tanggal Pinjam :</label>
@@ -28,20 +30,15 @@
 			</div>
 
 			<div class="form-group">
-				<label class="form-control-label">No Tiket :</label>
-				<input type="text" name="no_tiket" class="form-control" value="R-{{ $inventarisData->no_tiket }}" readonly>
-			</div>
-
-			<div class="form-group">
 				<label class="form-control-label">Tanggal Kembali :</label>
-				<input type="date" name="tgl_kembali" class="form-control">
+				<input type="date" name="tgl_kembali" class="form-control" required>
 			</div>
 
 			<div class="form-group">
 				<label class="form-control-label">Keterangan :</label>
-				<input type="text" name="keterangan" class="form-control">
+				<input type="text" name="keterangan" class="form-control" required>
 			</div>
-			<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Kembalikan</button>
+			<button type="submit" class="btn btn-danger"><i class="fa fa-recycle"></i> Kembalikan</button>
 			<a href="/inventaris" class="btn btn-success"><i class="fa fa-reply"></i> Batal</a>
 		</form>
 	</div><!-- .content -->

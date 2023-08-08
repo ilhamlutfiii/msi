@@ -25,9 +25,8 @@ class InventarisController extends Controller
         $noTiket = substr($request->no_tiket, 2);
         DB::table('inventaris')->insert([
             'user_id' => $request->user_id,
-            'id_perangkat' => $request->id_perangkat,
-            'tgl_pinjam' => $request->tgl_pinjam,
-            'no_tiket' => $noTiket
+            'komp_id' => $request->komp_id,
+            'tgl_pinjam' => $request->tgl_pinjam
         ]);
 
         return redirect('/inventaris');
@@ -46,16 +45,14 @@ class InventarisController extends Controller
         ]);
     }
 
-    public function log($idPerangkat)
+    public function log($id)
     {
-        $logs = DB::table('view_log')->where('id_perangkat', $idPerangkat)->get();
-        $users = DB::table('user')->get();
-        $komputers = DB::table('komputer')->get();
+        $logs = DB::table('view_log')->where('komp_id', $id)->get();
+        $id_perangkat = DB::table('view_log')->where('komp_id', $id)->value('id_perangkat');
 
         return view('index-log', [
             'logs' => $logs,
-            'users' => $users,
-            'id_perangkat' => $idPerangkat
+            'id_perangkat' => $id_perangkat
         ]);
     }
 
@@ -77,9 +74,8 @@ class InventarisController extends Controller
         $noTiket = substr($request->no_tiket, 2);
         DB::table('inventaris')->where('inventaris_id', $request->inventaris_id)->update([
             'user_id' => $request->user_id,
-            'id_perangkat' => $request->id_perangkat,
-            'tgl_pinjam' => $request->tgl_pinjam,
-            'no_tiket' => $noTiket
+            'komp_id' => $request->komp_id,
+            'tgl_pinjam' => $request->tgl_pinjam
         ]);
 
         return redirect('/inventaris');
@@ -97,15 +93,14 @@ class InventarisController extends Controller
         $noTiket = substr($request->no_tiket, 2);
         DB::table('log')->insert([
             'user_id' => $request->user_id,
-            'id_perangkat' => $request->id_perangkat,
+            'komp_id' => $request->komp_id,
             'tgl_pinjam' => $request->tgl_pinjam,
             'tgl_kembali' => $request->tgl_kembali,
-            'no_tiket' => $noTiket,
             'keterangan' => $request->keterangan
         ]);
         
         DB::table('inventaris')->where('inventaris_id', $id)->delete();
 
-        return redirect('/inventaris')->with('success', 'Log berhasil diposting dan inventaris berhasil dihapus.');
+        return redirect('/inventaris');
     }
 }

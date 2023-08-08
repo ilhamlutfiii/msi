@@ -32,25 +32,25 @@
 			<br/>
 			<table border="1" class="table table-striped table-bordered">
 				<tr>
-					<th>ID inventaris</th>
+					<th>ID Pinjam INV</th>
                     <th>Nama User</th>
-                    <th>Nama Komputer</th>
+					<th>NID User</th>
+                    <th>ID Perangkat</th>
                     <th>Tanggal Pinjam</th>
-                    <th>No Tiket</th>
                     <th>Opsi</th>
 				</tr>
 				@foreach($inventaris as $i)
 				<tr>
 					<td>{{ $i->inventaris_id }}</td>
 					<td>{{ $i->user_nama }}</td>
+					<td>{{ $i->user_nid }}</td>
                     <td>{{ $i->id_perangkat }}</td>
                     <td>{{ $i->tgl_pinjam }}</td>
-                    <td><a href="https://helpdesk.plnnusantarapower.co.id/pages/UI.php?operation=details&class=UserRequest&id={{ $i->no_tiket - 43 }}&c[menu]=UserRequest%3ARequestsDispatchedToMyTeams"class="link-no-tiket">R-{{ $i->no_tiket }}</td>
 					<td>
 						<a href="inventaris/detail/{{ $i->inventaris_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
 						<a href="inventaris/edit/{{ $i->inventaris_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
-						<a href="inventaris/hapus/{{ $i->inventaris_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
-						<a href="inventaris/log/{{ $i->id_perangkat }}" class="btn btn-info"><i class="fa fa-history"> Log History</i></a>
+						<a href="inventaris/hapus/{{ $i->inventaris_id }}" class="btn btn-danger"><i class="fa fa-recycle"> Kembalikan</i></a>
+						<a href="inventaris/log/{{ $i->komp_id }}" class="btn btn-info"><i class="fa fa-history"> Log History</i></a>
 					</td>
 				</tr>
 				@endforeach

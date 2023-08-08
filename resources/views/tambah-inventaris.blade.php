@@ -7,7 +7,7 @@
 		<div class="col-sm-4">
 			<div class="page-header float-left">
 				<div class="page-title">
-					<h1>Inventaris</h1>
+					<h1>Pinjam Inventaris</h1>
 				</div>
 			</div>
 		</div>
@@ -15,8 +15,8 @@
 			<div class="page-header float-right">
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
-						<li><a href="{{  url('/inventaris') }}">Inventaris</a></li>
-						<li><a href="{{  url('/inventaris/tambah_inventaris') }}">Tambah Inventaris</a></li>					
+						<li><a href="{{  url('/inventaris') }}">Pinjam Inventaris</a></li>
+						<li><a href="{{  url('/inventaris/tambah_inventaris') }}">Tambah Pinjam Inventaris</a></li>					
 					</ol>
 				</div>
 			</div>
@@ -43,18 +43,16 @@
         		</select>
     		</div>
 			<div class="form-group">
-        	<label class="form-control-label">Nama Komputer :</label>
-        		<select name="id_perangkat" id="komputer" class="form-control">
-            		<option value="0">Pilih Komputer...</option>
+        	<label class="form-control-label">ID Perangkat :</label>
+        		<select name="komp_id" id="komputer" class="form-control">
+            		<option value="0">Pilih ID Perangkat...</option>
             		@foreach($komputers as $k)
-                	<option value="{{ $k->id_perangkat }} ">{{ $k->id_perangkat }}</option>
+                	<option value="{{ $k->komp_id }} ">{{ $k->id_perangkat }}</option>
             		@endforeach
         		</select>
     		</div>
 
 			<div class="form-group"><label class="form-control-label">Tanggal Pinjam :</label><input type="date" name="tgl_pinjam" class="form-control" ></div>
-
-			<div class="form-group"><label class="form-control-label">No Tiket :</label><input type="text" name="no_tiket" class="form-control" value="R-"></div>
 
 			<button type="submit" class="btn btn-primary btn-sm">
 				<i class="fa fa-dot-circle-o"></i> Submit

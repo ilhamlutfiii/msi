@@ -1,13 +1,13 @@
 @extends('main')
 
-@section('title', 'Tambah Peminjaman')
+@section('title', 'Tambah Pinjam Sementara')
 
 @section('breadcrumbs')
 	<div class="breadcrumbs">
 		<div class="col-sm-4">
 			<div class="page-header float-left">
 				<div class="page-title">
-					<h1>Peminjaman</h1>
+					<h1>Pinjam Sementara</h1>
 				</div>
 			</div>
 		</div>
@@ -15,8 +15,8 @@
 			<div class="page-header float-right">
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
-						<li><a href="{{  url('/pinjam') }}">Peminjaman</a></li>
-						<li><a href="{{  url('/pinjam/tambah_pinjam') }}">Tambah Peminjaman</a></li>					
+						<li><a href="{{  url('/pinjam') }}">Pinjam Sementara</a></li>
+						<li><a href="{{  url('/pinjam/tambah_pinjam') }}">Tambah Pinjam Sementara</a></li>					
 					</ol>
 				</div>
 			</div>
@@ -43,11 +43,11 @@
         		</select>
     		</div>
 			<div class="form-group">
-        	<label class="form-control-label">Nama Komputer :</label>
-        		<select name="id_perangkat" id="komputer" class="form-control">
-            		<option value="0">Pilih Komputer...</option>
+        	<label class="form-control-label">ID Perangkat :</label>
+        		<select name="komp_id" id="komputer" class="form-control">
+            		<option value="0">Pilih ID Perangkat...</option>
             		@foreach($komputer as $k)
-                	<option value="{{ $k->id_perangkat }} ">{{ $k->id_perangkat }}</option>
+                	<option value="{{ $k->komp_id }} ">{{ $k->id_perangkat }}</option>
             		@endforeach
         		</select>
     		</div>

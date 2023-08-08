@@ -34,6 +34,7 @@
 				<tr>
 					<th>ID Perangkat</th>
 					<th>Hostname</th>
+					<th>Merk/Type</th>
                     <th>Port</th>
 					<th>Kategori</th>
 					<th>Pengguna</th>
@@ -55,6 +56,7 @@
 				<tr>
 					<td>{{ $k->id_perangkat }}</td>
 					<td>{{ $k->hostname}}</td>
+                    <td>{{ $k->merk_type }}</td>
                     <td>{{ $k->port }}</td>
                     <td>{{ $k->kategori }}</td>
                     <td>{{ $k->pengguna }}</td>
@@ -73,7 +75,8 @@
 					<td>
 						<a href="komputer/detail/{{ $k->id_perangkat }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
 						<a href="komputer/edit/{{ $k->id_perangkat }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
-						<a href="komputer/hapus/{{ $k->id_perangkat }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+						<a href="komputer/hapus/{{ $k->komp_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+						<a href="inventaris/log/{{ $k->komp_id }}" class="btn btn-info"><i class="fa fa-history"> Log History</i></a>
 					</td>
 				</tr>
 				@endforeach

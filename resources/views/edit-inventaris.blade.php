@@ -1,13 +1,13 @@
 @extends('main')
 
-@section('title', 'Edit Pinjam Sementara')
+@section('title', 'Edit Pinjam Inventaris')
 
 @section('breadcrumbs')
 	<div class="breadcrumbs">
 		<div class="col-sm-4">
 			<div class="page-header float-left">
 				<div class="page-title">
-					<h1>Edit Pinjam Sementara</h1>
+					<h1>Edit Pinjam Inventaris</h1>
 				</div>
 			</div>
 		</div>
@@ -15,8 +15,8 @@
 			<div class="page-header float-right">
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
-						<li><a href="/pinjam">Pinjam Sementara</a></li>
-						<li><a href="/pinjam/edit_pinjam">Edit Pinjam Sementara</a></li>
+						<li><a href="/inventaris">Pinjam Inventaris</a></li>
+						<li><a href="/inventaris/edit_inventaris">Edit Pinjam Inventaris</a></li>
 					</ol>
 				</div>
 			</div>
@@ -30,16 +30,16 @@
 
 <div class="card-body card-block">
 
-	@foreach($pinjam as $p)
-	<form action="/pinjam/update" method="post" class="">
+	@foreach($inventaris as $i)
+	<form action="/inventaris/update" method="post" class="">
 		{{ csrf_field() }}
-		<div class="form-group"><label class="form-control-label">ID Pinjam :</label><input type="text" name="pinjam_id" class="form-control" value="{{ $p->pinjam_id }}"readonly></div>
+		<div class="form-group"><label class="form-control-label">ID Pinjam INV :</label><input type="text" name="inventaris_id" class="form-control" value="{{ $i->inventaris_id }}"readonly></div>
 
 		<div class="form-group">
             <label class="form-control-label">Nama User :</label>
         		<select name="user_id" id="user" class="form-control">
-					<option value="{{ $p->user_id }}">{{ $p->user_nama }}</option>
-            		@foreach($user as $u)
+					<option value="{{ $i->user_id }}">{{ $i->user_nama }}</option>
+            		@foreach($users as $u)
                 	<option value="{{ $u->user_id }} ">{{ $u->user_nama }}</option>
             		@endforeach
         		</select>
@@ -48,18 +48,14 @@
 		<div class="form-group">
         	<label class="form-control-label">ID Perangkat :</label>
         		<select name="komp_id" id="komputer" class="form-control">
-					<option value="{{ $p->komp_id }}">{{ $p->id_perangkat }}</option>
-            		@foreach($komputer as $k)
+					<option value="{{ $i->komp_id }}">{{ $i->id_perangkat }}</option>
+            		@foreach($komputers as $k)
                 	<option value="{{ $k->komp_id }} ">{{ $k->id_perangkat }}</option>
             		@endforeach
         		</select>
     	</div>
 		
-		<div class="form-group"><label class="form-control-label">Tanggal Pinjam :</label><input type="date" name="tgl_pinjam" class="form-control" value="{{ $p->tgl_pinjam }}"></div>
-
-		<div class="form-group"><label class="form-control-label">Tanggal Kembali :</label><input type="date" name="tgl_kembali" class="form-control" value="{{ $p->tgl_kembali }}"></div>
-
-		<div class="form-group"><label class="form-control-label">No Tiket :</label><input type="text" name="no_tiket" class="form-control" value="R-{{ $p->no_tiket }}"></div>
+		<div class="form-group"><label class="form-control-label">Tanggal Pinjam :</label><input type="date" name="tgl_pinjam" class="form-control" value="{{ $i->tgl_pinjam }}"></div>
 
 		<button type="submit" class="btn btn-primary btn-sm">
 			<i class="fa fa-dot-circle-o"></i> Submit

@@ -27,7 +27,7 @@ class pinjamController extends Controller
         $no_tiket = substr($request->no_tiket, 2);
         DB::table('pinjam')->insert([
             'user_id' => $request->user_id,
-            'id_perangkat' => $request->id_perangkat,
+            'komp_id' => $request->komp_id,
             'tgl_pinjam' => $request->tgl_pinjam,
             'tgl_kembali' => $request->tgl_kembali,
             'no_tiket' => $no_tiket
@@ -69,7 +69,7 @@ class pinjamController extends Controller
         $no_tiket = substr($request->no_tiket, 2);
         DB::table('pinjam')->where('pinjam_id',$request->pinjam_id)->update([
             'user_id' => $request->user_id,
-            'id_perangkat' => $request->id_perangkat,
+            'komp_id' => $request->komp_id,
             'tgl_pinjam' => $request->tgl_pinjam,
             'tgl_kembali' => $request->tgl_kembali,
             'no_tiket' => $no_tiket

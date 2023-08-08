@@ -40,6 +40,7 @@ class KomputerController extends Controller
         DB::table('komputer')->insert([
             'id_perangkat' => $request->id_perangkat,
             'hostname' => $request->hostname,
+            'merk_type' => $request->merk_type,
             'port' => $request->port,
             'kategori' => $request->kategori,
             'pengguna' => $request->pengguna,
@@ -73,6 +74,16 @@ class KomputerController extends Controller
     
     }
 
+    public function log($idPerangkat)
+    {
+        $logs = DB::table('view_log')->where('id_perangkat', $idPerangkat)->get();
+
+        return view('index-log', [
+            'logs' => $logs,
+            'id_perangkat' => $idPerangkat
+        ]);
+    }
+
     public function edit($id)
     {
 		//ambil data dari table view_komputer
@@ -88,8 +99,10 @@ class KomputerController extends Controller
 
     public function update(Request $request)
     {
-        DB::table('komputer')->where('id_perangkat',$request->id_perangkat)->update([
+        DB::table('komputer')->where('komp_id',$request->komp_id)->update([
+            'id_perangkat'=>$request->id_perangkat,
             'hostname' => $request->hostname,
+            'merk_type' => $request->merk_type,
             'port' => $request->port,
             'kategori' => $request->kategori,
             'pengguna' => $request->pengguna,
@@ -110,14 +123,14 @@ class KomputerController extends Controller
     
     public function hapus($id)
     {
-        $hostname = DB::table('view_komputer')->where('id_perangkat', $id)->value('hostname');
+        $id_perangkat = DB::table('view_komputer')->where('komp_id', $id)->value('id_perangkat');
         // Menampilkan halaman konfirmasi hapus
-        return view('hapus-komputer', ['id' => $id, 'hostname' => $hostname]);
+        return view('hapus-komputer', ['id' => $id, 'id_perangkat' => $id_perangkat]);
     }
 
     public function hapusConfirm($id)
     {
-        DB::table('komputer')->where('id_perangkat', $id)->delete();
+        DB::table('komputer')->where('komp_id', $id)->delete();
         // Alihkan kembali ke halaman utama
         return redirect('/komputer');
     }        

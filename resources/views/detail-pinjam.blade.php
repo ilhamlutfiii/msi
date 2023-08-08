@@ -1,13 +1,13 @@
 @extends('main')
 
-@section('title', 'Peminjaman')
+@section('title', 'Pinjam Sementara')
 
 @section('breadcrumbs')
 	<div class="breadcrumbs">
 		<div class="col-sm-4">
 			<div class="page-header float-left">
 				<div class="page-title">
-					<h1>Peminjaman</h1>
+					<h1>Pinjam Sementara</h1>
 				</div>
 			</div>
 		</div>
@@ -15,8 +15,8 @@
 			<div class="page-header float-right">
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
-						<li><a href="pinjam">Peminjaman</a></li>
-						<li class="active">Data pinjam</li>
+						<li><a href="pinjam">Pinjam Sementara</a></li>
+						<li class="active">Data Pinjam Sementara</li>
 					</ol>
 				</div>
 			</div>
@@ -37,7 +37,10 @@
                             <td><strong>Nama User</strong><td> {{ $p->user_nama }}</td></td>
                         </tr>
                         <tr>
-                            <td><strong>Nama Komputer</strong><td> {{ $p->id_perangkat }}</td></td>
+                            <td><strong>NID User</strong><td> {{ $p->user_nid }}</td></td>
+                        </tr>
+                        <tr>
+                            <td><strong>ID Perangkat</strong><td> {{ $p->id_perangkat }}</td></td>
                         </tr>
                         <tr>
                             <td><strong>Tanggal Pinjam</strong><td> {{ $p->tgl_pinjam }}</td></td>
@@ -51,7 +54,7 @@
                         <tr>
                             <td>
                                 <a href="../edit/{{ $p->pinjam_id }}" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
-                                <a href="../hapus/{{ $p->pinjam_id }}" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                <a href="../hapus/{{ $p->pinjam_id }}" class="btn btn-danger"><i class="fa fa-recycle"></i> Kembalikan</a>
                             </td>
                         </tr>
                     @endforeach
