@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $home = DB::table('view_user')->get();
+        $home = DB::table('view_pinjam')->get();
         $countPinjaman = DB::table('view_pinjam')->count();
 		
         return view('home', ['home' => $home, 'countPinjaman' => $countPinjaman]);

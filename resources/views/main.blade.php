@@ -71,9 +71,12 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children active dropdown">
-                        <a href="{{  url('/pinjam') }}" class="dropdown-toggle"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Peminjaman</a>
-                    </li>
-                   
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Peminjaman</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="{{  url('/pinjam') }}">Sementara</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{  url('/inventaris') }}">Inventaris</a></li>
+                        </ul>
+                    </li>                
 					
             </div><!-- /.navbar-collapse -->
         </nav>
