@@ -42,49 +42,19 @@
 				<tr>
 					<th>ID Perangkat</th>
 					<th>Hostname</th>
-					<th>Merk/Type</th>
-                    <th>Port</th>
-					<th>Kategori</th>
-					<th>Pengguna</th>
-                    <th>IP Address</th>
-                    <th>Lokasi</th>
-                    <th>Referensi</th>
-                    <th>OS</th>
-                    <th>Ram/HDD</th>
-                    <th>Inventaris</th>
-                    <th>Status</th>
-                    <th>Penggunaan</th>
-                    <th>Keterangan</th>
-                    <th>Mac</th>
-                    <th>Macc</th>
-                    <th>Tahun</th>
+					<th>Keterangan</th>
                     <th>Opsi</th>
 				</tr>
 				@foreach($komputer as $k)
 				<tr>
 					<td>{{ $k->id_perangkat }}</td>
 					<td>{{ $k->hostname}}</td>
-                    <td>{{ $k->merk_type }}</td>
-                    <td>{{ $k->port }}</td>
-                    <td>{{ $k->kategori }}</td>
-                    <td>{{ $k->pengguna }}</td>
-                    <td>{{ $k->ip_address }}</td>
-                    <td>{{ $k->lokasi }}</td>
-                    <td>{{ $k->referensi }}</td>
-					<td>{{ $k->os_name }}</td>
-                    <td>{{ $k->ram_hdd }}</td>
-                    <td>{{ $k->inventaris }}</td>
-                    <td>{{ $k->status }}</td>
-                    <td>{{ $k->penggunaan }}</td>
-                    <td>{{ $k->keterangan }}</td>
-                    <td>{{ $k->mac }}</td>
-                    <td>{{ $k->macc }}</td>
-                    <td>{{ $k->tahun }}</td>
+					<td>{{ $k->keterangan}}</td>
 					<td>
-						<a href="komputer/detail/{{ $k->id_perangkat }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
-						<a href="komputer/edit/{{ $k->id_perangkat }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
+						<a href="komputer/detail/{{ $k->komp_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
+						<a href="komputer/edit/{{ $k->komp_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
 						<a href="komputer/hapus/{{ $k->komp_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
-						<a href="inventaris/log/{{ $k->komp_id }}" class="btn btn-info"><i class="fa fa-history"> Log History</i></a>
+						<a href="{{ route('komputer_log') }}/{{ $k->komp_id }}" class="btn btn-info"><i class="fa fa-history"> Log History</i></a>
 					</td>
 				</tr>
 				@endforeach

@@ -33,7 +33,7 @@
             </div>
 
             <br>
-            <div>Data User yang harus mengembalikan laptop sekarang:</div>
+            <div>Data User yang harus mengembalikan laptop pinjaman sementara sekarang:</div>
             <p></p>
             <table border="1" class="table table-striped table-bordered">
                 <tr>

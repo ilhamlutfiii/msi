@@ -64,7 +64,7 @@ class KomputerController extends Controller
     public function detail($id)
     {
 		//ambil data dari table view_komputer
-        $komputer = DB::table('view_komputer')->where('id_perangkat',$id)->get();
+        $komputer = DB::table('view_komputer')->where('komp_id',$id)->get();
 		
 		//ambil data dari table ip
         $ip = DB::table('ip')->get();
@@ -74,20 +74,21 @@ class KomputerController extends Controller
     
     }
 
-    public function log($idPerangkat)
+    public function log($id)
     {
-        $logs = DB::table('view_log')->where('id_perangkat', $idPerangkat)->get();
+        $logs = DB::table('view_log')->where('komp_id', $id)->get();
+        $id_perangkat = DB::table('view_log')->where('komp_id', $id)->value('id_perangkat');
 
         return view('index-log', [
             'logs' => $logs,
-            'id_perangkat' => $idPerangkat
+            'id_perangkat' => $id_perangkat
         ]);
     }
 
     public function edit($id)
     {
 		//ambil data dari table view_komputer
-        $komputer = DB::table('view_komputer')->where('id_perangkat',$id)->get();
+        $komputer = DB::table('view_komputer')->where('komp_id',$id)->get();
 		
 		//ambil data dari table ip
         $ip = DB::table('ip')->get();
@@ -140,6 +141,7 @@ class KomputerController extends Controller
     $keyword = $request->input('keyword');
     $komputer = DB::table('view_komputer')
         ->Where('komp_id', 'LIKE', "%$keyword%")
+        ->orWhere('id_perangkat', 'LIKE', "%$keyword%")
         ->orWhere('hostname', 'LIKE', "%$keyword%")
         ->orwhere('merk_type', 'LIKE', "%$keyword%")
         ->orWhere('port', 'LIKE', "%$keyword%")

@@ -35,7 +35,7 @@
 			{{ csrf_field() }}
 			<div class="form-group"><label class="form-control-label">ID Komputer :</label><input type="text" name="komp_id" class="form-control" value="{{ $k->komp_id }}"readonly></div>
 
-			<div class="form-group"><label class="form-control-label">ID Perangkat :</label><input type="text" name="id_perangkat" class="form-control" value="{{ $k->id_perangkat }}"readonly></div>
+			<div class="form-group"><label class="form-control-label">ID Perangkat :</label><input type="text" name="id_perangkat" class="form-control" value="{{ $k->id_perangkat }}"></div>
 
             <div class="form-group"><label class="form-control-label">Hostname :</label><input type="text" name="hostname" class="form-control" value="{{ $k->hostname }}"></div>
 

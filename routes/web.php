@@ -110,7 +110,7 @@ Route::get('/komputer/detail/{id}', '\App\Http\Controllers\KomputerController@de
 Route::get('/komputer/edit/{id}', '\App\Http\Controllers\KomputerController@edit');
 Route::post('/komputer/update', '\App\Http\Controllers\KomputerController@update');
 Route::get('/komputer/hapus/{id}', '\App\Http\Controllers\KomputerController@hapus');
-Route::get('/inventaris/log/{id_perangkat}', 'App\Http\Controllers\InventarisController@log');
+Route::get('/inventaris/log', 'App\Http\Controllers\InventarisController@log')->name('komputer_log');
 Route::get('/komputer/hapus/confirm/{id}', '\App\Http\Controllers\KomputerController@hapusConfirm')->name('komputer.hapus.confirm');
 Route::get('/komputer/search', '\App\Http\Controllers\KomputerController@search')->name('search_komputer');
 
@@ -133,7 +133,7 @@ Route::get('/inventaris/detail/{id}', 'App\Http\Controllers\InventarisController
 Route::get('/inventaris/edit/{id}', 'App\Http\Controllers\InventarisController@edit');
 Route::post('/inventaris/update', 'App\Http\Controllers\InventarisController@update');
 Route::get('/inventaris/hapus/{id}', 'App\Http\Controllers\InventarisController@hapus');
-Route::get('/inventaris/log/{id}', 'App\Http\Controllers\InventarisController@log');
+Route::get('/inventaris/log/{id}', 'App\Http\Controllers\InventarisController@log')->name('inventaris.log');
 Route::post('/inventaris/{id}/storeLog', 'App\Http\Controllers\InventarisController@storeLog')->name('store-log');
 Route::get('/inventaris/search', '\App\Http\Controllers\InventarisController@search')->name('search_inventaris');
-Route::get('/inventaris/searchLog', '\App\Http\Controllers\InventarisController@searchLog')->name('search_log');
+Route::get('/log/searchLog', '\App\Http\Controllers\InventarisController@searchLog')->name('search_log');

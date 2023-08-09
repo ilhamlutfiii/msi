@@ -22,7 +22,6 @@ class InventarisController extends Controller
 
     public function store(Request $request)
     {
-        $noTiket = substr($request->no_tiket, 2);
         DB::table('inventaris')->insert([
             'user_id' => $request->user_id,
             'komp_id' => $request->komp_id,
@@ -71,7 +70,6 @@ class InventarisController extends Controller
 
     public function update(Request $request)
     {
-        $noTiket = substr($request->no_tiket, 2);
         DB::table('inventaris')->where('inventaris_id', $request->inventaris_id)->update([
             'user_id' => $request->user_id,
             'komp_id' => $request->komp_id,
@@ -90,7 +88,6 @@ class InventarisController extends Controller
 
     public function storeLog(Request $request, $id)
     {
-        $noTiket = substr($request->no_tiket, 2);
         DB::table('log')->insert([
             'user_id' => $request->user_id,
             'komp_id' => $request->komp_id,
@@ -119,18 +116,22 @@ class InventarisController extends Controller
     }
 
     public function searchLog(Request $request)
-    {
+{
     $keyword = $request->input('keyword');
-    $log = DB::table('log')
+    $logs = DB::table('view_log')
         ->Where('log_id', 'LIKE', "%$keyword%")
         ->orWhere('user_nid', 'LIKE', "%$keyword%")
-        ->orwhere('user_nama', 'LIKE', "%$keyword%")
+        ->orWhere('user_nama', 'LIKE', "%$keyword%")
         ->orWhere('id_perangkat', 'LIKE', "%$keyword%")
         ->orWhere('tgl_pinjam', 'LIKE', "%$keyword%")
         ->orWhere('tgl_kembali', 'LIKE', "%$keyword%")
         ->orWhere('keterangan', 'LIKE', "%$keyword%")
         ->get();
     
-    return view('index-log', compact('log'));
-    }
+    // Retrieve $id_perangkat from the first log entry
+    $id_perangkat = $logs->isEmpty() ? null : $logs[0]->id_perangkat;
+
+    return view('index-log', compact('logs', 'id_perangkat'));
+}
+
 }
