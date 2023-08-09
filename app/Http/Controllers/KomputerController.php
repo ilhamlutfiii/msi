@@ -134,5 +134,31 @@ class KomputerController extends Controller
         // Alihkan kembali ke halaman utama
         return redirect('/komputer');
     }        
+
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $komputer = DB::table('view_komputer')
+        ->Where('komp_id', 'LIKE', "%$keyword%")
+        ->orWhere('hostname', 'LIKE', "%$keyword%")
+        ->orwhere('merk_type', 'LIKE', "%$keyword%")
+        ->orWhere('port', 'LIKE', "%$keyword%")
+        ->orWhere('kategori', 'LIKE', "%$keyword%")
+        ->orWhere('pengguna', 'LIKE', "%$keyword%")
+        ->orWhere('ip_address', 'LIKE', "%$keyword%")
+        ->orWhere('lokasi', 'LIKE', "%$keyword%")
+        ->orWhere('referensi', 'LIKE', "%$keyword%")
+        ->orWhere('os_name', 'LIKE', "%$keyword%")
+        ->orWhere('ram_hdd', 'LIKE', "%$keyword%")
+        ->orWhere('inventaris', 'LIKE', "%$keyword%")
+        ->orWhere('status', 'LIKE', "%$keyword%")
+        ->orWhere('penggunaan', 'LIKE', "%$keyword%")
+        ->orWhere('keterangan', 'LIKE', "%$keyword%")
+        ->orWhere('mac', 'LIKE', "%$keyword%")
+        ->orWhere('macc', 'LIKE', "%$keyword%")
+        ->orWhere('tahun', 'LIKE', "%$keyword%")
+        ->get();
+    return view('index-komputer', compact('komputer'));
+    }
     
 }

@@ -59,4 +59,15 @@ class BidangController extends Controller
         // Alihkan kembali ke halaman utama
         return redirect('/bidang');
     }
+
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $bidang = DB::table('bidang')
+        ->Where('bidang_id', 'LIKE', "%$keyword%")
+        ->orWhere('bidang_name', 'LIKE', "%$keyword%")
+        ->get();
+    
+    return view('index-bidang', compact('bidang'));
+    }
 }

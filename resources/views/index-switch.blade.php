@@ -26,10 +26,18 @@
 
 @section('content')
 	<div class="content mt-3">
-		<div class="animated fadeIn">	
-			<a href="switch/tambah_switch" class="btn btn-info"> + Tambah Switch Baru</a>
-			<br/>
-			<br/>
+			<div class="animated fadeIn">
+				<div class="d-flex justify-content-between mb-3">
+					<a href="{{ route('tambah_switch') }}" class="btn btn-info"> + Tambah Switch Baru</a>
+					<form action="{{ route('search_switch') }}" method="GET" class="form-inline">
+						<div class="input-group">
+							<input type="text" name="keyword" class="form-control" placeholder="Cari Switch...">
+							<div class="input-group-append">
+								<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Cari</button>
+							</div>
+						</div>
+					</form>
+				</div>
 			<table border="1" class="table table-striped table-bordered">
 				<tr>
 					<th>Switch Id</th>

@@ -62,4 +62,15 @@ class OsController extends Controller
         // Alihkan kembali ke halaman utama
         return redirect('/os');
     }
+
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $os = DB::table('os')
+        ->Where('os_id', 'LIKE', "%$keyword%")
+        ->orWhere('os_name', 'LIKE', "%$keyword%")
+        ->orwhere('ram_hdd', 'LIKE', "%$keyword%")
+        ->get();
+    return view('index-os', compact('os'));
+    }
 }

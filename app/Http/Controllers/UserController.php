@@ -84,4 +84,19 @@ class UserController extends Controller
         // Alihkan kembali ke halaman utama
         return redirect('/user');
     }
+
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $user = DB::table('view_user')
+        ->Where('user_id', 'LIKE', "%$keyword%")
+        ->orWhere('user_nid', 'LIKE', "%$keyword%")
+        ->orwhere('user_nama', 'LIKE', "%$keyword%")
+        ->orWhere('jabatan_name', 'LIKE', "%$keyword%")
+        ->orWhere('bidang_name', 'LIKE', "%$keyword%")
+        ->orWhere('fungsi_name', 'LIKE', "%$keyword%")
+        ->orWhere('user_password', 'LIKE', "%$keyword%")
+        ->get();
+    return view('index-user', compact('user'));
+    }
 }

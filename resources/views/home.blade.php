@@ -53,7 +53,7 @@
                         <tr>
                             <td>{{ $h->pinjam_id }}</td>
                             <td>{{ $h->user_nama }}</td>
-                            <td>{{ $h->hostname }}</td>
+                            <td>{{ $h->id_perangkat }}</td>
                             <td>{{ $h->tgl_pinjam }}</td>
                             <td>{{ $h->tgl_kembali }}</td>
                             <td><a href="https://helpdesk.plnnusantarapower.co.id/pages/UI.php?operation=details&class=UserRequest&id={{ $h->no_tiket - 43 }}&c[menu]=UserRequest%3ARequestsDispatchedToMyTeams"class="link-no-tiket">R-{{ $h->no_tiket }}</td>

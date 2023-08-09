@@ -103,4 +103,34 @@ class InventarisController extends Controller
 
         return redirect('/inventaris');
     }
+
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $inventaris = DB::table('view_inventaris')
+        ->Where('inventaris_id', 'LIKE', "%$keyword%")
+        ->orWhere('user_nid', 'LIKE', "%$keyword%")
+        ->orwhere('user_nama', 'LIKE', "%$keyword%")
+        ->orWhere('id_perangkat', 'LIKE', "%$keyword%")
+        ->orWhere('tgl_pinjam', 'LIKE', "%$keyword%")
+        ->get();
+    
+    return view('index-inventaris', compact('inventaris'));
+    }
+
+    public function searchLog(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $log = DB::table('log')
+        ->Where('log_id', 'LIKE', "%$keyword%")
+        ->orWhere('user_nid', 'LIKE', "%$keyword%")
+        ->orwhere('user_nama', 'LIKE', "%$keyword%")
+        ->orWhere('id_perangkat', 'LIKE', "%$keyword%")
+        ->orWhere('tgl_pinjam', 'LIKE', "%$keyword%")
+        ->orWhere('tgl_kembali', 'LIKE', "%$keyword%")
+        ->orWhere('keterangan', 'LIKE', "%$keyword%")
+        ->get();
+    
+    return view('index-log', compact('log'));
+    }
 }

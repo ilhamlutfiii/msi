@@ -59,4 +59,14 @@ class JabatanController extends Controller
         return redirect('/jabatan');
     }
 
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $jabatan = DB::table('jabatan')
+        ->Where('jabatan_id', 'LIKE', "%$keyword%")
+        ->orWhere('jabatan_name', 'LIKE', "%$keyword%")
+        ->get();
+    
+    return view('index-jabatan', compact('jabatan'));
+    }
 }

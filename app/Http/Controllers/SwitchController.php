@@ -106,4 +106,24 @@ class SwitchController extends Controller
         // Alihkan kembali ke halaman utama
         return redirect('/switch');
     }
+
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $switch = DB::table('view_switch')
+        ->Where('switch_id', 'LIKE', "%$keyword%")
+        ->orWhere('port', 'LIKE', "%$keyword%")
+        ->orwhere('nama', 'LIKE', "%$keyword%")
+        ->orWhere('tipe', 'LIKE', "%$keyword%")
+        ->orWhere('sn', 'LIKE', "%$keyword%")
+        ->orWhere('letak', 'LIKE', "%$keyword%")
+        ->orWhere('mac', 'LIKE', "%$keyword%")
+        ->orWhere('macc', 'LIKE', "%$keyword%")
+        ->orWhere('ip_address', 'LIKE', "%$keyword%")
+        ->orWhere('referensi', 'LIKE', "%$keyword%")
+        ->get();
+    
+    return view('index-switch', compact('switch'));
+    }
+
 }

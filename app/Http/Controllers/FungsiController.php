@@ -67,4 +67,16 @@ class FungsiController extends Controller
         // Alihkan kembali ke halaman utama
         return redirect('/fungsi');
     }
+
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $fungsi = DB::table('view_fungsi')
+        ->Where('fungsi_id', 'LIKE', "%$keyword%")
+        ->orWhere('fungsi_name', 'LIKE', "%$keyword%")
+        ->orWhere('unit_name', 'LIKE', "%$keyword%")
+        ->get();
+    
+    return view('index-fungsi', compact('fungsi'));
+    }
 }

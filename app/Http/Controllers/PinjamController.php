@@ -81,14 +81,29 @@ class pinjamController extends Controller
     {
         $user_nama = DB::table('view_pinjam')->where('pinjam_id', $id)->value('user_nama');
         $id_perangkat = DB::table('view_pinjam')->where('pinjam_id', $id)->value('id_perangkat');
-        // Menampilkan halaman konfirmasi hapus
+        
         return view('hapus-pinjam', ['id' => $id, 'user_nama' => $user_nama, 'id_perangkat' => $id_perangkat]);
     }
 
     public function hapusConfirm($id)
     {
         DB::table('pinjam')->where('pinjam_id', $id)->delete();
-        // Alihkan kembali ke halaman utama
         return redirect('/pinjam');
     }    
+
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $pinjam = DB::table('view_pinjam')
+        ->Where('pinjam_id', 'LIKE', "%$keyword%")
+        ->orWhere('user_nama', 'LIKE', "%$keyword%")
+        ->orwhere('user_nid', 'LIKE', "%$keyword%")
+        ->orWhere('id_perangkat', 'LIKE', "%$keyword%")
+        ->orWhere('tgl_pinjam', 'LIKE', "%$keyword%")
+        ->orWhere('tgl_kembali', 'LIKE', "%$keyword%")
+        ->orWhere('no_tiket', 'LIKE', "%$keyword%")
+        ->get();
+    
+    return view('index-pinjam', compact('pinjam'));
+    }
 }

@@ -27,9 +27,17 @@
 @section('content')
 	<div class="content mt-3">
 		<div class="animated fadeIn">	
-			<a href="inventaris/tambah_inventaris" class="btn btn-info"> + Tambah Pinjam Inventaris Baru</a>
-			<br/>
-			<br/>
+				<div class="d-flex justify-content-between mb-3">
+					<a href="{{ route('tambah_inventaris') }}" class="btn btn-info"> + Tambah Inventaris Baru</a>
+					<form action="{{ route('search_inventaris') }}" method="GET" class="form-inline">
+						<div class="input-group">
+							<input type="text" name="keyword" class="form-control" placeholder="Cari Pinjam Inventaris...">
+							<div class="input-group-append">
+								<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Cari</button>
+							</div>
+						</div>
+					</form>
+				</div>
 			<table border="1" class="table table-striped table-bordered">
 				<tr>
 					<th>ID Pinjam INV</th>

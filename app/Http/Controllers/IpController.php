@@ -63,4 +63,16 @@ class IpController extends Controller
         // Alihkan kembali ke halaman utama
         return redirect('/ip');
     }
+
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $ip = DB::table('ip')
+        ->Where('ip_id', 'LIKE', "%$keyword%")
+        ->orWhere('ip_address', 'LIKE', "%$keyword%")
+        ->orwhere('bagian', 'LIKE', "%$keyword%")
+        ->orWhere('keterangan', 'LIKE', "%$keyword%")
+        ->get();
+    return view('index-ip', compact('ip'));
+    }
 }

@@ -66,4 +66,13 @@ class UnitController extends Controller
 		 return redirect('/unit');
 	 }
 
+	 public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    $unit = DB::table('unit')
+        ->Where('unit_id', 'LIKE', "%$keyword%")
+        ->orWhere('unit_name', 'LIKE', "%$keyword%")
+        ->get();
+    return view('index-unit', compact('unit'));
+    }
 }
