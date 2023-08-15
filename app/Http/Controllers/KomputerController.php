@@ -25,18 +25,15 @@ class KomputerController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data formulir
-    $validator = Validator::make($request->all(), [
-        'id_perangkat' => 'required|unique:komputer',
-        // Tambahkan aturan validasi untuk kolom lain jika diperlukan
-    ]);
-
-    // Cek apakah validasi berhasil
-    if ($validator->fails()) {
-        return redirect('/komputer/tambah_komputer')
-                    ->withErrors($validator)
-                    ->withInput();
-    }
+        $validator = Validator::make($request->all(), [
+            'id_perangkat' => 'required|unique:komputer,id_perangkat',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         DB::table('komputer')->insert([
             'id_perangkat' => $request->id_perangkat,
             'hostname' => $request->hostname,

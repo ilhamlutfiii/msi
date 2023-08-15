@@ -61,9 +61,9 @@
 					<td>{{ $u->fungsi_name }}</td>
 					<td>{{ $u->unit_name }}</td>
 					<td>
-						<a href="user/edit/{{ $u->user_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
+						<a href="../user/edit/{{ $u->user_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
 						|
-						<a href="user/hapus/{{ $u->user_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+						<a href="../user/hapus/{{ $u->user_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
 					</td>
 				</tr>
 				@endforeach

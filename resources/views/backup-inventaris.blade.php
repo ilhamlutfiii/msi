@@ -7,7 +7,7 @@
 	<div class="animated fadeIn">
 		<form method="POST" action="{{ route('store-log', ['id' => $inventarisData->inventaris_id]) }}">
 			@csrf <!-- Add this line for CSRF protection -->
-			<h2>Konfirmasi Pengembalian Inventaris</h2>
+			<h2>Konfirmasi Pengembalian Pinjam Inventaris</h2>
 			<p>Apakah Anda yakin ingin mengembalikan peminjaman ini?</p>
 
 			<div class="form-group">

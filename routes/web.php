@@ -94,7 +94,7 @@ Route::get('/os/search', '\App\Http\Controllers\OsController@search')->name('sea
 Route::get('/switch', '\App\Http\Controllers\SwitchController@index');
 Route::get('/switch/tambah_switch', '\App\Http\Controllers\SwitchController@tambah_switch')->name('tambah_switch');
 Route::post('/switch/store', '\App\Http\Controllers\SwitchController@store');
-Route::get('/switch/detail/{id}', '\App\Http\Controllers\SwitchController@detail');
+Route::get('/switch/detail/{id}', '\App\Http\Controllers\SwitchController@detail')->name('detail_switch');
 Route::get('/switch/edit/{id}', '\App\Http\Controllers\SwitchController@edit');
 Route::post('/switch/update', '\App\Http\Controllers\SwitchController@update');
 Route::get('/switch/hapus/{id}', '\App\Http\Controllers\SwitchController@hapus');

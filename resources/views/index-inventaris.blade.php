@@ -55,10 +55,10 @@
                     <td>{{ $i->id_perangkat }}</td>
                     <td>{{ $i->tgl_pinjam }}</td>
 					<td>
-						<a href="inventaris/detail/{{ $i->inventaris_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
-						<a href="inventaris/edit/{{ $i->inventaris_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
-						<a href="inventaris/hapus/{{ $i->inventaris_id }}" class="btn btn-danger"><i class="fa fa-recycle"> Kembalikan</i></a>
-						<a href="inventaris/log/{{ $i->komp_id }}" class="btn btn-info"><i class="fa fa-history"> Log History</i></a>
+						<a href="../inventaris/detail/{{ $i->inventaris_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
+						<a href="../inventaris/edit/{{ $i->inventaris_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
+						<a href="../inventaris/hapus/{{ $i->inventaris_id }}" class="btn btn-danger"><i class="fa fa-recycle"> Kembalikan</i></a>
+						<a href="../inventaris/log/{{ $i->komp_id }}" class="btn btn-info"><i class="fa fa-history"> Log History</i></a>
 					</td>
 				</tr>
 				@endforeach

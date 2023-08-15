@@ -57,11 +57,11 @@
                     <td>{{ $p->id_perangkat }}</td>
                     <td>{{ $p->tgl_pinjam }}</td>
                     <td>{{ $p->tgl_kembali }}</td>
-                    <td><a href="https://helpdesk.plnnusantarapower.co.id/pages/UI.php?operation=details&class=UserRequest&id={{ $p->no_tiket - 43 }}&c[menu]=UserRequest%3ARequestsDispatchedToMyTeams"class="link-no-tiket">R-{{ $p->no_tiket }}</td>
+                    <td><a href="https://helpdesk.plnnusantarapower.co.id/pages/UI.php?operation=details&class=UserRequest&id={{ $p->no_tiket - 43 }}&c[menu]=UserRequest%3ARequestsDispatchedToMyTeams"class="link-no-tiket" target="_blank">R-{{ $p->no_tiket }}</td>
 					<td>
-						<a href="pinjam/detail/{{ $p->pinjam_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
-						<a href="pinjam/edit/{{ $p->pinjam_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
-						<a href="pinjam/hapus/{{ $p->pinjam_id }}" class="btn btn-danger"><i class="fa fa-recycle"> Kembalikan</i></a>
+						<a href="../pinjam/detail/{{ $p->pinjam_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
+						<a href="../pinjam/edit/{{ $p->pinjam_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
+						<a href="../pinjam/hapus/{{ $p->pinjam_id }}" class="btn btn-danger"><i class="fa fa-recycle"> Kembalikan</i></a>
 					</td>
 				</tr>
 				@endforeach
@@ -69,13 +69,26 @@
 		</div><!-- .content -->
     </div>
 @endsection
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const links = document.querySelectorAll(".link-no-tiket");
+        
+        links.forEach(link => {
+            link.addEventListener("click", function() {
+                this.classList.add("clicked");
+            });
+        });
+    });
+</script>
 <style>
 	.link-no-tiket {
 		color: #007bff;
 	}
-	
+	.link-no-tiket.clicked {
+        color: #007bff;
+    }
 	.link-no-tiket:hover {
-		color: #0056b3;
+		color: #007bff;
 		text-decoration: underline;
 	}
 </style>

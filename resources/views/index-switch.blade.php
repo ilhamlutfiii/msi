@@ -65,9 +65,9 @@
 					<td>{{ $s->ip_address }}</td>
                     <td>{{ $s->referensi }}</td>
 					<td>
-						<a href="switch/detail/{{ $s->switch_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
-						<a href="switch/edit/{{ $s->switch_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
-						<a href="switch/hapus/{{ $s->switch_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+						<a href="../switch/detail/{{ $s->switch_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
+						<a href="../switch/edit/{{ $s->switch_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
+						<a href="../switch/hapus/{{ $s->switch_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
 					</td>
 				</tr>
 				@endforeach

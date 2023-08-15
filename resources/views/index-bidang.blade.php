@@ -49,9 +49,9 @@
 					<td>{{ $b->bidang_id }}</td>
 					<td>{{ $b->bidang_name }}</td>
 					<td>
-						<a href="bidang/edit/{{ $b->bidang_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
+						<a href="../bidang/edit/{{ $b->bidang_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
 						|
-						<a href="bidang/hapus/{{ $b->bidang_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+						<a href="../bidang/hapus/{{ $b->bidang_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
 					</td>
 				</tr>
 				@endforeach

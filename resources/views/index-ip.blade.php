@@ -53,9 +53,9 @@
                     <td>{{ $i->bagian }}</td>
                     <td>{{ $i->keterangan }}</td>
 					<td>
-						<a href="ip/edit/{{ $i->ip_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
+						<a href="../ip/edit/{{ $i->ip_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
 						|
-						<a href="ip/hapus/{{ $i->ip_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+						<a href="../ip/hapus/{{ $i->ip_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
 					</td>
 				</tr>
 				@endforeach

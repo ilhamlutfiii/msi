@@ -16,6 +16,7 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
-        "@selectize/selectize": "^0.15.2"
+        "@selectize/selectize": "^0.15.2",
+        "bootstrap": "^5.3.1"
     }
 }

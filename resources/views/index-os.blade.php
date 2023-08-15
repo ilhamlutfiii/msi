@@ -51,9 +51,9 @@
 					<td>{{ $o->os_name }}</td>
 					<td>{{ $o->ram_hdd }}</td>
 					<td>
-						<a href="os/edit/{{ $o->os_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
+						<a href="../os/edit/{{ $o->os_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
 						|
-						<a href="os/hapus/{{ $o->os_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+						<a href="../os/hapus/{{ $o->os_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
 					</td>
 				</tr>
 				@endforeach

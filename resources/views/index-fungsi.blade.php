@@ -51,9 +51,9 @@
 					<td>{{ $f->fungsi_name }}</td>
 					<td>{{ $f->unit_name }}</td>
 					<td>
-						<a href="fungsi/edit/{{ $f->fungsi_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
+						<a href="../fungsi/edit/{{ $f->fungsi_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
 						|
-						<a href="fungsi/hapus/{{ $f->fungsi_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+						<a href="../fungsi/hapus/{{ $f->fungsi_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
 					</td>
 				</tr>
 				@endforeach

@@ -51,9 +51,9 @@
 					<td>{{ $k->hostname}}</td>
 					<td>{{ $k->keterangan}}</td>
 					<td>
-						<a href="komputer/detail/{{ $k->komp_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
-						<a href="komputer/edit/{{ $k->komp_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
-						<a href="komputer/hapus/{{ $k->komp_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+						<a href="../komputer/detail/{{ $k->komp_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
+						<a href="../komputer/edit/{{ $k->komp_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
+						<a href="../komputer/hapus/{{ $k->komp_id }}" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
 						<a href="{{ route('komputer_log') }}/{{ $k->komp_id }}" class="btn btn-info"><i class="fa fa-history"> Log History</i></a>
 					</td>
 				</tr>

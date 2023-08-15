@@ -81,14 +81,14 @@
             <div class="form-group"><label class="form-control-label">Status :</label><input type="text" name="status" class="form-control"value="{{ $k->status }}" ></div>
 
             <div class="form-group"><label class="form-control-label">Penggunaan :</label><input type="text" name="penggunaan" class="form-control"value="{{ $k->penggunaan }}" ></div>
-
-            <div class="form-group"><label class="form-control-label">Keterangan :</label><input type="text" name="keterangan" class="form-control"value="{{ $k->keterangan }}" ></div>
 		
             <div class="form-group"><label class="form-control-label">Mac :</label><input type="text" name="mac" class="form-control"value="{{ $k->mac }}" ></div>
 
             <div class="form-group"><label class="form-control-label">Macc :</label><input type="text" name="macc" class="form-control"value="{{ $k->macc }}" ></div>
 
             <div class="form-group"><label class="form-control-label">Tahun :</label><input type="text" name="tahun" class="form-control"value="{{ $k->tahun }}" ></div>
+
+			<div class="form-group"><label class="form-control-label">Keterangan :</label><input type="text" name="keterangan" class="form-control"value="{{ $k->keterangan }}" ></div>
 
 			<button type="submit" class="btn btn-primary btn-sm">
 				<i class="fa fa-dot-circle-o"></i> Submit

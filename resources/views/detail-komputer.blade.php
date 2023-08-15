@@ -15,7 +15,7 @@
 			<div class="page-header float-right">
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
-						<li><a href="komputer">Komputer</a></li>
+						<li><a href="../">Komputer</a></li>
 						<li class="active">Data Komputer</li>
 					</ol>
 				</div>
@@ -70,9 +70,6 @@
                             <td><strong>Penggunaan</strong><td> {{ $k->penggunaan }}</td></td>
                         </tr>
                         <tr>
-                            <td><strong>Keterangan</strong><td> {{ $k->keterangan }}</td></td>
-                        </tr>
-                        <tr>
                             <td><strong>Mac</strong><td> {{ $k->mac }}</td></td>
                         </tr>
                         <tr>
@@ -80,6 +77,9 @@
                         </tr>
                         <tr>
                             <td><strong>Tahun</strong><td> {{ $k->tahun }}</td></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Keterangan</strong><td> {{ $k->keterangan }}</td></td>
                         </tr>
                         
                         <tr>

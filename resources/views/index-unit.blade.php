@@ -50,9 +50,9 @@
 				<td>{{ $u->unit_id }}</td>
 				<td>{{ $u->unit_name }}</td>
 				<td>
-					<a href="unit/edit/{{ $u->unit_id }}" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
+					<a href="../unit/edit/{{ $u->unit_id }}" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
 					|
-					<a href="unit/hapus/{{ $u->unit_id }}" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus  </a>
+					<a href="../unit/hapus/{{ $u->unit_id }}" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus  </a>
 				</td>
 			</tr>
 			@endforeach

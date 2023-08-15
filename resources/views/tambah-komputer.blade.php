@@ -1,3 +1,4 @@
+
 @extends('main')
 
 @section('title', 'Tambah Komputer')
@@ -41,7 +42,7 @@
 		<br/>
 		<form action="{{  url('/komputer/store') }}" method="post" class="">
 			{{ csrf_field() }}
-			<div class="form-group"><label class="form-control-label">ID Perangkat :</label><input type="text" name="id_perangkat" class="form-control"></div>
+			<div class="form-group"><label class="form-control-label" >ID Perangkat :</label><input type="text" name="id_perangkat" class="form-control" autofocus required></div>
 
             <div class="form-group"><label class="form-control-label">Hostname :</label><input type="text" name="hostname" class="form-control" ></div>
 
@@ -49,7 +50,7 @@
 
             <div class="form-group"><label class="form-control-label">Kategori :</label>
                 <select name="kategori" id="select" class="form-control">
-                    <option value="0">Please select</option>
+                    <option value="0">Pilih Kategori</option>
 				    <option value="Laptop">-- Laptop --</option>
                     <option value="Desktop">-- Destop --</option>
                     <option value="Serve">-- Server --</option>
@@ -61,14 +62,16 @@
             <div class="form-group"><label class="form-control-label">Pengguna :</label><input type="text" name="pengguna" class="form-control" ></div>
 
 			<div class="form-group">
-        	<label class="form-control-label">Alamat IP :</label>
-        		<select name="ip_id" id="ip_address" class="form-control">
-            		<option value="0">Pilih alamat IP</option>
-            		@foreach($ip as $i)
-                	<option value="{{ $i->ip_id }} ">{{ $i->ip_address }}</option>
-            		@endforeach
-        		</select>
-    		</div>
+                <label class="form-control-label">Alamat IP :</label>
+                <select name="ip_id" id="ip_address" class="form-control selectip">
+                    <option value="0">Pilih Alamat IP</option>
+                    @foreach($ip as $i)
+                        <option value="{{ $i->ip_id }}">{{ $i->ip_address }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+			<p>
 
             <div class="form-group"><label class="form-control-label">Lokasi :</label><input type="text" name="lokasi" class="form-control" ></div>
 
@@ -76,7 +79,7 @@
 
             <div class="form-group"><label class="form-control-label">OS -- Ram/HDD :</label>
                 <select name="os_id" id="select" class="form-control">
-                    <option value="0">Please select</option>
+                    <option value="0">Pilih OS</option>
 				    @foreach($os as $o)
 				    <option value="{{ $o->os_id }} ">-- {{ $o->os_name }} --  {{ $o->ram_hdd }} --</option>
 				    @endforeach
@@ -88,14 +91,14 @@
             <div class="form-group"><label class="form-control-label">Status :</label><input type="text" name="status" class="form-control" ></div>
 
             <div class="form-group"><label class="form-control-label">Penggunaan :</label><input type="text" name="penggunaan" class="form-control" ></div>
-
-            <div class="form-group"><label class="form-control-label">Keterangan :</label><input type="text" name="keterangan" class="form-control" ></div>
 		
             <div class="form-group"><label class="form-control-label">Mac :</label><input type="text" name="mac" class="form-control" ></div>
 
             <div class="form-group"><label class="form-control-label">Macc :</label><input type="text" name="macc" class="form-control" ></div>
 
-            <div class="form-group"><label class="form-control-label">Tahun :</label><input type="text" name="tahun" class="form-control" ></div>
+            <div class="form-group"><label class="form-control-label">Tahun :</label><input type="number" name="tahun" class="form-control"></div>
+
+			<div class="form-group"><label class="form-control-label">Keterangan :</label><input type="text" name="keterangan" class="form-control" ></div>
 
 			<button type="submit" class="btn btn-primary btn-sm">
 				<i class="fa fa-dot-circle-o"></i> Submit
