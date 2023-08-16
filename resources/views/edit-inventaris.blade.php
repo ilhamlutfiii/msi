@@ -37,7 +37,7 @@
 
 		<div class="form-group">
             <label class="form-control-label">Nama User :</label>
-        		<select name="user_id" id="user" class="form-control">
+        		<select name="user_id" id="user" class="form-control selectuser">
 					<option value="{{ $i->user_id }}">{{ $i->user_nama }}</option>
             		@foreach($users as $u)
                 	<option value="{{ $u->user_id }} ">{{ $u->user_nama }}</option>
@@ -47,7 +47,7 @@
 
 		<div class="form-group">
         	<label class="form-control-label">ID Perangkat :</label>
-        		<select name="komp_id" id="komputer" class="form-control">
+        		<select name="komp_id" id="komputer" class="form-control selectkomp">
 					<option value="{{ $i->komp_id }}">{{ $i->id_perangkat }}</option>
             		@foreach($komputers as $k)
                 	<option value="{{ $k->komp_id }} ">{{ $k->id_perangkat }}</option>

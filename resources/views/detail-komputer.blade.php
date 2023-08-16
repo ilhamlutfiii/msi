@@ -43,7 +43,7 @@
                             <td><strong>Kategori</strong><td> {{ $k->kategori }}</td></td>
                         </tr>
                         <tr>
-                            <td><strong>Pengguna</strong><td> {{ $k->pengguna }}</td></td>
+                            <td><strong>User</strong><td> {{ $k->user_nama }}</td></td>
                         </tr>
                         <tr>
                             <td><strong>IP Address</strong><td> {{ $k->ip_address }}</td></td>

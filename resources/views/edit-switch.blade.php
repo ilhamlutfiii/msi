@@ -50,7 +50,7 @@
         <div class="form-group"><label class="form-control-label">Macc :</label><input type="text" name="macc" class="form-control" value="{{ $s->macc }}"></div>
 
 		<div class="form-group"><label class="form-control-label">IP Address :</label>
-			<select name="ip_id" id="select" class="form-control">
+			<select name="ip_id" id="select" class="form-control selectip">
 				<option value="{{ $s->ip_id }}">{{ $s->ip_address }}</option>
 				@foreach($ip as $i)
 				<option value="{{ $i->ip_id }} ">-- {{ $i->ip_address }} --</option>

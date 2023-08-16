@@ -59,7 +59,18 @@
 			    </select>
             </div>
 
-            <div class="form-group"><label class="form-control-label">Pengguna :</label><input type="text" name="pengguna" class="form-control" ></div>
+            <div class="form-group">
+                <label class="form-control-label">User :</label>
+                <select name="user_id" id="user_nama" class="form-control selectuser">
+                    <option value="0">Pilih User</option>
+                    @foreach($user as $u)
+                        <option value="{{ $u->user_id }}">{{ $u->user_nama }}</option>
+                    @endforeach
+                    
+                </select>
+				
+				
+            </div>
 
 			<div class="form-group">
                 <label class="form-control-label">Alamat IP :</label>
@@ -68,7 +79,10 @@
                     @foreach($ip as $i)
                         <option value="{{ $i->ip_id }}">{{ $i->ip_address }}</option>
                     @endforeach
+                    
                 </select>
+				
+				
             </div>
 
 			<p>
@@ -98,7 +112,7 @@
 
             <div class="form-group"><label class="form-control-label">Tahun :</label><input type="number" name="tahun" class="form-control"></div>
 
-			<div class="form-group"><label class="form-control-label">Keterangan :</label><input type="text" name="keterangan" class="form-control" ></div>
+			<div class="form-group"><label class="form-control-label">Keterangan :</label><textarea type="text" name="keterangan" class="form-control" ></textarea></div>
 
 			<button type="submit" class="btn btn-primary btn-sm">
 				<i class="fa fa-dot-circle-o"></i> Submit
@@ -109,3 +123,4 @@
 		</form>
 	</div>
 @endsection
+

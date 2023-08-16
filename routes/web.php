@@ -100,6 +100,7 @@ Route::post('/switch/update', '\App\Http\Controllers\SwitchController@update');
 Route::get('/switch/hapus/{id}', '\App\Http\Controllers\SwitchController@hapus');
 Route::get('/switch/hapus/confirm/{id}', '\App\Http\Controllers\SwitchController@hapusConfirm')->name('switch.hapus.confirm');
 Route::get('/switch/search', '\App\Http\Controllers\SwitchController@search')->name('search_switch');
+Route::get('/ip/tambah_ip', '\App\Http\Controllers\IpController@tambah_ip')->name('tambah_ip');
 
 
 //crud komputer
@@ -113,6 +114,8 @@ Route::get('/komputer/hapus/{id}', '\App\Http\Controllers\KomputerController@hap
 Route::get('/inventaris/log', 'App\Http\Controllers\InventarisController@log')->name('komputer_log');
 Route::get('/komputer/hapus/confirm/{id}', '\App\Http\Controllers\KomputerController@hapusConfirm')->name('komputer.hapus.confirm');
 Route::get('/komputer/search', '\App\Http\Controllers\KomputerController@search')->name('search_komputer');
+Route::get('/user/tambah_user', '\App\Http\Controllers\UserController@tambah_user')->name('tambah_user');
+Route::get('/ip/tambah_ip', '\App\Http\Controllers\IpController@tambah_ip')->name('tambah_ip');
 
 //crud pinjam
 Route::get('/pinjam', '\App\Http\Controllers\PinjamController@index');
@@ -124,6 +127,8 @@ Route::post('/pinjam/update', '\App\Http\Controllers\PinjamController@update');
 Route::get('/pinjam/hapus/{id}', '\App\Http\Controllers\PinjamController@hapus');
 Route::get('/pinjam/hapus/confirm/{id}', '\App\Http\Controllers\PinjamController@hapusConfirm')->name('pinjam.hapus.confirm');
 Route::get('/pinjam/search', '\App\Http\Controllers\PinjamController@search')->name('search_pinjam');
+Route::get('/user/tambah_user', '\App\Http\Controllers\UserController@tambah_user')->name('tambah_user');
+Route::get('/komputer/tambah_komputer', '\App\Http\Controllers\KomputerController@tambah_komputer')->name('tambah_komputer');
 
 // CRUD inventaris
 Route::get('/inventaris', 'App\Http\Controllers\InventarisController@index');
@@ -137,3 +142,5 @@ Route::get('/inventaris/log/{id}', 'App\Http\Controllers\InventarisController@lo
 Route::post('/inventaris/{id}/storeLog', 'App\Http\Controllers\InventarisController@storeLog')->name('store-log');
 Route::get('/inventaris/search', '\App\Http\Controllers\InventarisController@search')->name('search_inventaris');
 Route::get('/log/searchLog', '\App\Http\Controllers\InventarisController@searchLog')->name('search_log');
+Route::get('/user/tambah_user', '\App\Http\Controllers\UserController@tambah_user')->name('tambah_user');
+Route::get('/komputer/tambah_komputer', '\App\Http\Controllers\KomputerController@tambah_komputer')->name('tambah_komputer');

@@ -17,9 +17,10 @@ class KomputerController extends Controller
     {
     
         // memanggil view tambah
+        $user = DB::table('user')->get();
         $ip = DB::table('ip')->get();
         $os = DB::table('os')->get();
-        return view('tambah-komputer',['ip' => $ip],['os' => $os]);
+        return view('tambah-komputer',['ip' => $ip],['os' => $os, 'user' => $user]);
     
     }
 
@@ -40,7 +41,7 @@ class KomputerController extends Controller
             'merk_type' => $request->merk_type,
             'port' => $request->port,
             'kategori' => $request->kategori,
-            'pengguna' => $request->pengguna,
+            'user_id' => $request->user_id,
             'ip_id' => $request->ip_id,
             'lokasi' => $request->lokasi,
             'referensi' => $request->referensi,
@@ -66,8 +67,9 @@ class KomputerController extends Controller
 		//ambil data dari table ip
         $ip = DB::table('ip')->get();
         $os = DB::table('os')->get();
-		
-        return view('detail-komputer',['komputer' => $komputer],['ip' => $ip,'os' => $os]);
+		$user = DB::table('user')->get();
+        
+        return view('detail-komputer',['komputer' => $komputer],['ip' => $ip,'os' => $os],['user' => $user]);
     
     }
 
@@ -90,8 +92,9 @@ class KomputerController extends Controller
 		//ambil data dari table ip
         $ip = DB::table('ip')->get();
         $os = DB::table('os')->get();
+		$user = DB::table('user')->get();
 		
-        return view('edit-komputer',['komputer' => $komputer],['ip' => $ip,'os' => $os]);
+        return view('edit-komputer',['komputer' => $komputer],['ip' => $ip,'os' => $os,'user' => $user]);
     
     }
 
@@ -103,7 +106,7 @@ class KomputerController extends Controller
             'merk_type' => $request->merk_type,
             'port' => $request->port,
             'kategori' => $request->kategori,
-            'pengguna' => $request->pengguna,
+            'user_id' => $request->user_id,
             'ip_id' => $request->ip_id,
             'lokasi' => $request->lokasi,
             'referensi' => $request->referensi,
@@ -143,7 +146,7 @@ class KomputerController extends Controller
         ->orwhere('merk_type', 'LIKE', "%$keyword%")
         ->orWhere('port', 'LIKE', "%$keyword%")
         ->orWhere('kategori', 'LIKE', "%$keyword%")
-        ->orWhere('pengguna', 'LIKE', "%$keyword%")
+        ->orWhere('user_nama', 'LIKE', "%$keyword%")
         ->orWhere('ip_address', 'LIKE', "%$keyword%")
         ->orWhere('lokasi', 'LIKE', "%$keyword%")
         ->orWhere('referensi', 'LIKE', "%$keyword%")

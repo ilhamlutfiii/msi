@@ -52,10 +52,16 @@
 			    </select>
             </div>
 
-            <div class="form-group"><label class="form-control-label">Pengguna :</label><input type="text" name="pengguna" class="form-control" value="{{ $k->pengguna }}"></div>
-
+            <div class="form-group"><label class="form-control-label">User :</label>
+				<select name="user_id" id="user_nama" class="form-control selectuser">
+                    <option value="{{ $k->user_id }}">{{ $k->user_nama }}</option>
+				    @foreach($user as $u)
+				    <option value="{{ $u->user_id }} ">-- {{ $u->user_nama }} --</option>
+				    @endforeach
+			    </select>
+            </div>
             <div class="form-group"><label class="form-control-label">IP Address :</label>
-                <select name="ip_id" id="select" class="form-control" >
+                <select name="ip_id" id="select" class="form-control selectip" >
                     <option value="{{ $k->ip_id }}">{{ $k->ip_address }}</option>
 				    @foreach($ip as $i)
 				    <option value="{{ $i->ip_id }} ">-- {{ $i->ip_address }} --</option>

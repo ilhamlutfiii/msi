@@ -35,7 +35,7 @@
 			{{ csrf_field() }}
 			<div class="form-group">
             <label class="form-control-label">Nama User :</label>
-        		<select name="user_id" id="user" class="form-control">
+        		<select name="user_id" id="user" class="form-control selectuser">
             		<option value="0">Pilih User...</option>
             		@foreach($user as $u)
                 	<option value="{{ $u->user_id }} ">{{ $u->user_nama }}</option>
@@ -44,7 +44,7 @@
     		</div>
 			<div class="form-group">
         	<label class="form-control-label">ID Perangkat :</label>
-        		<select name="komp_id" id="komputer" class="form-control">
+        		<select name="komp_id" id="komputer" class="form-control selectkomp">
             		<option value="0">Pilih ID Perangkat...</option>
             		@foreach($komputer as $k)
                 	<option value="{{ $k->komp_id }} ">{{ $k->id_perangkat }}</option>

@@ -9,14 +9,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MSI - @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css' async>
     <link rel="apple-touch-icon" href="apple-icon.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    
 
     <link rel="stylesheet" href="{{ asset('style/assets/css/normalize.css')}}">
-    <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('style/assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css')}}" async>
+    <link rel="stylesheet" href="{{ asset('style/assets/css/font-awesome.min.css')}}" async>
     <link rel="stylesheet" href="{{ asset('style/assets/css/themify-icons.css')}}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/cs-skin-elastic.css')}}">
@@ -24,7 +26,9 @@
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="{{ asset('style/assets/scss/style.css')}}">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ asset('style/assets/css/select2.min.css')}}" async>    
+
+    
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
@@ -97,7 +101,7 @@
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
-						<h3>MANAJEMEN SISTEM INFORMASI</h3>
+                    <a href="{{  url('/home') }}"><h3>MANAJEMEN SISTEM INFORMASI</h3></a>
                     </div>
                 </div>
 
@@ -131,11 +135,13 @@
 
     <!-- Right Panel -->
 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous" async></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
     <!-- <script src="{{ asset('style/assets/js/vendor/jquery-2.1.4.min.js')}}"></script> -->
-    <script src="{{ asset('style/assets/js/popper.min.js')}}"></script>
+    
+    <script src="{{ asset('style/assets/js/bootstrap.min.js')}}"></script>
+    
+    <script src="{{ asset('style/assets/js/popper.min.js')}}" async></script>
     <script src="{{ asset('style/assets/js/plugins.js')}}"></script>
     <script src="{{ asset('style/assets/js/main.js')}}"></script>
 
@@ -146,19 +152,55 @@
     <script src="{{ asset('style/assets/js/lib/data-table/jszip.min.js')}}"></script>
     <!-- <script src="{{ asset('style/assets/js/lib/data-table/pdfmake.min.js')}}"></script> -->
     <script src="{{ asset('style/assets/js/lib/data-table/vfs_fonts.js')}}"></script>
-    <script src="{{ asset('style/assets/js/lib/data-table/buttons.html5.min.js')}}"></script>
+    <script src="{{ asset('style/assets/js/lib/data-table/buttons.html5.min.js')}}" async></script>
     <script src="{{ asset('style/assets/js/lib/data-table/buttons.print.min.js')}}"></script>
     <script src="{{ asset('style/assets/js/lib/data-table/buttons.colVis.min.js')}}"></script>
     <script src="{{ asset('style/assets/js/lib/data-table/datatables-init.js')}}"></script>
+    <script src="{{ asset('style/assets/js/select2.min.js')}}" defer></script>
 
-
+    
+    
     <script type="text/javascript">
         $(document).ready(function() {
             $('#bootstrap-data-table-export').DataTable();
-            $('.selectip').select2();
-                placeholder: 'pilih ip'
+            $('.selectuser').select2({
+                language: {
+                    noResults: function() {return "Ingin menambahkan User baru? <a href='" + "{{ route('tambah_user') }}" + "' class='select3'>Klik Disini</a>"; }
+                },
+                escapeMarkup: function (markup) {
+                    return markup;
+                },
+            });
+            $('.selectip').select2({
+                language: {
+                    noResults: function() {return "Ingin menambahkan IP baru? <a href='" + "{{ route('tambah_ip') }}" + "' class='select3'>Klik Disini</a>"; }
+                },
+                escapeMarkup: function (markup) {
+                    return markup;
+                },
+            });
+            $('.selectkomp').select2({
+                language: {
+                    noResults: function() {return "Ingin menambahkan Komputer baru? <a href='" + "{{ route('tambah_komputer') }}" + "' class='select3'>Klik Disini</a>"; }
+                },
+                escapeMarkup: function (markup) {
+                    return markup;
+                },
+            });
         } );
+        
+
     </script>
+    <style>
+        .select3{
+            color: blue;
+        }
+        .select3:hover {
+            color: dodgerblue; /* Warna biru muda saat hover */
+            text-decoration: underline; /* Garis bawah saat hover */
+        }
+    </style>
+    
 
 </body>
 </html>
