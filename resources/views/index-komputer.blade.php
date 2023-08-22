@@ -43,6 +43,7 @@
 					<th>ID Perangkat</th>
 					<th>Hostname</th>
 					<th>Keterangan</th>
+					<th>Nama User</th>
                     <th>Opsi</th>
 				</tr>
 				@foreach($komputer as $k)
@@ -50,6 +51,7 @@
 					<td>{{ $k->id_perangkat }}</td>
 					<td>{{ $k->hostname}}</td>
 					<td>{{ $k->keterangan}}</td>
+					<td>{{ $k->user_nama}}</td>
 					<td>
 						<a href="../komputer/detail/{{ $k->komp_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
 						<a href="../komputer/edit/{{ $k->komp_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>

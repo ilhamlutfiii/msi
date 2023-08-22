@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//route untuk tampilan dashboard awal admin
-Route::get('/home', '\App\Http\Controllers\HomeController@index');
+Route::get('user/login', '\App\Http\Controllers\UserController@loginPage')->name('login_page');
+Route::post('user/login', '\App\Http\Controllers\UserController@login')->name('user_login');
+
+Auth::routes();
+
+Route::middleware([isLogin::class])->group(function () {
+    // Rute-rute yang perlu otentikasi
+    Route::get('/home', '\App\Http\Controllers\HomeController@index')->name('home');
+
+    Route::post('user/logout', '\App\Http\Controllers\UserController@logout')->name('user_logout');
 
 //route CRUD unit
 Route::get('/unit', '\App\Http\Controllers\UnitController@index');
@@ -69,6 +78,7 @@ Route::post('/user/update', '\App\Http\Controllers\UserController@update');
 Route::get('/user/hapus/{id}', '\App\Http\Controllers\UserController@hapus');
 Route::get('/user/hapus/confirm/{id}', '\App\Http\Controllers\UserController@hapusConfirm')->name('user.hapus.confirm');
 Route::get('/user/search', '\App\Http\Controllers\UserController@search')->name('search_user');
+Route::get('/fungsi/tambah_fungsi', '\App\Http\Controllers\FungsiController@tambah_fungsi')->name('tambah_fungsi');
 
 //crud ip
 Route::get('/ip', '\App\Http\Controllers\IpController@index');
@@ -144,3 +154,5 @@ Route::get('/inventaris/search', '\App\Http\Controllers\InventarisController@sea
 Route::get('/log/searchLog', '\App\Http\Controllers\InventarisController@searchLog')->name('search_log');
 Route::get('/user/tambah_user', '\App\Http\Controllers\UserController@tambah_user')->name('tambah_user');
 Route::get('/komputer/tambah_komputer', '\App\Http\Controllers\KomputerController@tambah_komputer')->name('tambah_komputer');
+
+});

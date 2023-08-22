@@ -16,7 +16,7 @@ class pinjamController extends Controller
     {
     
         // memanggil view tambah
-        $user = DB::table('user')->get();
+        $user = DB::table('users')->get();
         $komputer = DB::table('komputer')->get();
         return view('tambah-pinjam',['user' => $user],['komputer' => $komputer]);
     
@@ -44,7 +44,7 @@ class pinjamController extends Controller
         $pinjam = DB::table('view_pinjam')->where('pinjam_id',$id)->get();
 		
 		//ambil data dari table user
-        $user = DB::table('user')->get();
+        $user = DB::table('users')->get();
         $komputer = DB::table('komputer')->get();
 		
         return view('detail-pinjam',['pinjam' => $pinjam],['user' => $user,'komputer' => $komputer]);
@@ -57,7 +57,7 @@ class pinjamController extends Controller
         $pinjam = DB::table('view_pinjam')->where('pinjam_id',$id)->get();
 		
 		//ambil data dari table user
-        $user = DB::table('user')->get();
+        $user = DB::table('users')->get();
         $komputer = DB::table('komputer')->get();
 		
         return view('edit-pinjam',['pinjam' => $pinjam],['user' => $user,'komputer' => $komputer]);

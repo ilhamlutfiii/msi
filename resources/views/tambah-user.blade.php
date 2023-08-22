@@ -33,14 +33,14 @@
 		<form action="{{  url('/user/store') }}" method="post" class="">
 			{{ csrf_field() }}
 			
-			<div class="form-group"><label class="form-control-label">NID User</label><input type="text" name="user_nid" class="form-control"></div>
+			<div class="form-group"><label class="form-control-label">User NID</label><input type="text" name="user_nid" class="form-control"></div>
 			
 			<div class="form-group"><label class="form-control-label">Nama User</label><input type="text" name="user_nama" class="form-control"></div>
 			
-			<div class="form-group"><label class="form-control-label">Password</label><input type="text" name="user_password" class="form-control"></div>		
+			<div class="form-group"><label class="form-control-label">Password</label><input type="text" name="password" class="form-control"></div>		
 			
 			<div class="form-group"><label class="form-control-label">Bidang</label> </br>
-				<select name="bidang_id" id="select" class="form-control-sm">
+				<select name="bidang_id" id="select" class="form-control">
 					<option value="0">Please select Bidang</option>
 						@foreach($bidang as $b)
 							<option value="{{ $b->bidang_id }}"> {{ $b->bidang_name }} </option>
@@ -49,7 +49,7 @@
 			</div>			
 			
 			<div class="form-group"><label class="form-control-label">Fungsi</label> </br>
-				<select name="fungsi_id" id="select" class="form-control-sm">
+				<select name="fungsi_id" id="select" class="form-control selectfungsi">
 					<option value="0">Please select Fungsi</option>
 						@foreach($fungsi as $f)
 							<option value="{{ $f->fungsi_id }}"> {{ $f->fungsi_name }} </option>
@@ -58,7 +58,7 @@
 			</div>			
 			
 			<div class="form-group"><label class="form-control-label">Jabatan</label> </br>
-				<select name="jabatan_id" id="select" class="form-control-sm">
+				<select name="jabatan_id" id="select" class="form-control">
 					<option value="0">Please select Jabatan</option>
 						@foreach($jabatan as $j)
 							<option value="{{ $j->jabatan_id }}"> {{ $j->jabatan_name }} </option>

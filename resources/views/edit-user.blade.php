@@ -30,16 +30,16 @@
 
 <div class="card-body card-block">
 
-	@foreach($user as $u)
+	@foreach($users as $u)
 	<form action="/user/update" method="post" class="">
 		{{ csrf_field() }}
 			<div class="form-group"><label class="form-control-label">User ID</label><input type="text" name="user_id" class="form-control" value="{{ $u->user_id }}" readonly></div>
 			
-			<div class="form-group"><label class="form-control-label">NID User</label><input type="text" name="user_nid" class="form-control" value="{{ $u->user_nid }}"></div>
+			<div class="form-group"><label class="form-control-label">User NID</label><input type="text" name="user_nid" class="form-control" value="{{ $u->user_nid }}"></div>
 			
 			<div class="form-group"><label class="form-control-label">Nama User :</label><input type="text" name="user_nama" class="form-control" value="{{ $u->user_nama }}"></div>
 			
-			<div class="form-group"><label class="form-control-label">Password :</label><input type="text" name="user_password" class="form-control" value="{{ $u->user_password }}"></div>		
+			<div class="form-group"><label class="form-control-label">Password :</label><input type="text" name="password" class="form-control" value="{{ $u->password }}"></div>		
 			
 			<div class="form-group"><label class="form-control-label">Bidang :</label> </br>
 				<select name="bidang_id" id="select" class="form-control">
@@ -51,7 +51,7 @@
 			</div>			
 			
 			<div class="form-group"><label class="form-control-label">Fungsi :</label> </br>
-				<select name="fungsi_id" id="select" class="form-control">
+				<select name="fungsi_id" id="select" class="form-control selectfungsi">
 						<option value="{{ $u->fungsi_id }}">{{ $u->fungsi_name }}</option>
 						@foreach($fungsi as $f)
 						<option value="{{ $f->fungsi_id }}">-- {{ $f->fungsi_name }} --</option>

@@ -15,7 +15,7 @@ class InventarisController extends Controller
 
     public function tambah_inventaris()
     {
-        $users = DB::table('user')->get();
+        $users = DB::table('users')->get();
         $komputers = DB::table('komputer')->get();
         return view('tambah-inventaris', ['users' => $users, 'komputers' => $komputers]);
     }
@@ -34,7 +34,7 @@ class InventarisController extends Controller
     public function detail($id)
     {
         $inventaris = DB::table('view_inventaris')->where('inventaris_id', $id)->get();
-        $users = DB::table('user')->get();
+        $users = DB::table('users')->get();
         $komputers = DB::table('komputer')->get();
 
         return view('detail-inventaris', [
@@ -58,7 +58,7 @@ class InventarisController extends Controller
     public function edit($id)
     {
         $inventaris = DB::table('view_inventaris')->where('inventaris_id', $id)->get();
-        $users = DB::table('user')->get();
+        $users = DB::table('users')->get();
         $komputers = DB::table('komputer')->get();
 
         return view('edit-inventaris', [

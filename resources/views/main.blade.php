@@ -101,7 +101,7 @@
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
-                    <a href="{{  url('/home') }}"><h3>MANAJEMEN SISTEM INFORMASI</h3></a>
+                    <a href="{{  url('/home') }}" style="color: black;"><h3>MANAJEMEN SISTEM INFORMASI</h3></a>
                     </div>
                 </div>
 
@@ -165,7 +165,7 @@
             $('#bootstrap-data-table-export').DataTable();
             $('.selectuser').select2({
                 language: {
-                    noResults: function() {return "Ingin menambahkan User baru? <a href='" + "{{ route('tambah_user') }}" + "' class='select3'>Klik Disini</a>"; }
+                    noResults: function() {return "Nama User yang anda cari tidak ditemukan, ingin menambahkan User baru? <a href='" + "{{ route('tambah_user') }}" + "' class='select3'>Klik Disini</a>"; }
                 },
                 escapeMarkup: function (markup) {
                     return markup;
@@ -173,7 +173,7 @@
             });
             $('.selectip').select2({
                 language: {
-                    noResults: function() {return "Ingin menambahkan IP baru? <a href='" + "{{ route('tambah_ip') }}" + "' class='select3'>Klik Disini</a>"; }
+                    noResults: function() {return "Alamat IP yang anda cari tidak ditemukan, ingin menambahkan IP baru? <a href='" + "{{ route('tambah_ip') }}" + "' class='select3'>Klik Disini</a>"; }
                 },
                 escapeMarkup: function (markup) {
                     return markup;
@@ -181,7 +181,15 @@
             });
             $('.selectkomp').select2({
                 language: {
-                    noResults: function() {return "Ingin menambahkan Komputer baru? <a href='" + "{{ route('tambah_komputer') }}" + "' class='select3'>Klik Disini</a>"; }
+                    noResults: function() {return "ID Perangkat yang anda cari tidak ditemukan, ingin menambahkan ID Perangkat baru? <a href='" + "{{ route('tambah_komputer') }}" + "' class='select3'>Klik Disini</a>"; }
+                },
+                escapeMarkup: function (markup) {
+                    return markup;
+                },
+            });
+            $('.selectfungsi').select2({
+                language: {
+                    noResults: function() {return "Fungsi yang anda cari tidak ditemukan, ingin menambahkan Fungsi baru? <a href='" + "{{ route('tambah_fungsi') }}" + "' class='select3'>Klik Disini</a>"; }
                 },
                 escapeMarkup: function (markup) {
                     return markup;

@@ -17,7 +17,7 @@ class KomputerController extends Controller
     {
     
         // memanggil view tambah
-        $user = DB::table('user')->get();
+        $user = DB::table('users')->get();
         $ip = DB::table('ip')->get();
         $os = DB::table('os')->get();
         return view('tambah-komputer',['ip' => $ip],['os' => $os, 'user' => $user]);
@@ -67,7 +67,7 @@ class KomputerController extends Controller
 		//ambil data dari table ip
         $ip = DB::table('ip')->get();
         $os = DB::table('os')->get();
-		$user = DB::table('user')->get();
+		$user = DB::table('users')->get();
         
         return view('detail-komputer',['komputer' => $komputer],['ip' => $ip,'os' => $os],['user' => $user]);
     
@@ -92,7 +92,7 @@ class KomputerController extends Controller
 		//ambil data dari table ip
         $ip = DB::table('ip')->get();
         $os = DB::table('os')->get();
-		$user = DB::table('user')->get();
+		$user = DB::table('users')->get();
 		
         return view('edit-komputer',['komputer' => $komputer],['ip' => $ip,'os' => $os,'user' => $user]);
     
@@ -147,6 +147,7 @@ class KomputerController extends Controller
         ->orWhere('port', 'LIKE', "%$keyword%")
         ->orWhere('kategori', 'LIKE', "%$keyword%")
         ->orWhere('user_nama', 'LIKE', "%$keyword%")
+        ->orWhere('user_nid', 'LIKE', "%$keyword%")
         ->orWhere('ip_address', 'LIKE', "%$keyword%")
         ->orWhere('lokasi', 'LIKE', "%$keyword%")
         ->orWhere('referensi', 'LIKE', "%$keyword%")

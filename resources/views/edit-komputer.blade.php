@@ -52,7 +52,7 @@
 			    </select>
             </div>
 
-            <div class="form-group"><label class="form-control-label">User :</label>
+            <div class="form-group"><label class="form-control-label">Nama User :</label>
 				<select name="user_id" id="user_nama" class="form-control selectuser">
                     <option value="{{ $k->user_id }}">{{ $k->user_nama }}</option>
 				    @foreach($user as $u)
@@ -92,9 +92,8 @@
 
             <div class="form-group"><label class="form-control-label">Macc :</label><input type="text" name="macc" class="form-control"value="{{ $k->macc }}" ></div>
 
-            <div class="form-group"><label class="form-control-label">Tahun :</label><input type="text" name="tahun" class="form-control"value="{{ $k->tahun }}" ></div>
-
-			<div class="form-group"><label class="form-control-label">Keterangan :</label><input type="text" name="keterangan" class="form-control"value="{{ $k->keterangan }}" ></div>
+            <div class="form-group"><label class="form-control-label">Tahun :</label><input type="number" name="tahun" class="form-control"value="{{ $k->tahun }}" ></div>
+			<div class="form-group"><label class="form-control-label">Keterangan :</label><textarea type="text" name="keterangan" class="form-control" value="{{ $k->keterangan }}"></textarea></div>
 
 			<button type="submit" class="btn btn-primary btn-sm">
 				<i class="fa fa-dot-circle-o"></i> Submit

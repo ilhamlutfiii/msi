@@ -60,7 +60,7 @@
             </div>
 
             <div class="form-group">
-                <label class="form-control-label">User :</label>
+                <label class="form-control-label">Nama User :</label>
                 <select name="user_id" id="user_nama" class="form-control selectuser">
                     <option value="0">Pilih User</option>
                     @foreach($user as $u)
