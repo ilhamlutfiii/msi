@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-image: url(https://www.pertamina.com/Media/Image/post/20210303025135806_65a5ab6d48de46ddbd8f114071dae18f.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    padding: 40px;
+}
+
+.card-header {
+    padding: 10px;
+    text-align: center;
+}
+
+.card-header h4 {
+    font-weight: 600;
+    color:#fff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    color: #fff;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.avatar {
+font-size: 30px ;
+background: #E59866;
+width: 55px;
+height: 55px;
+line-height: 55px;
+position: fixed;
+left: 53%;
+top: 25%;
+transform: translate(-50%, -50%);
+text-align: center;
+border-radius: 50%;
+}

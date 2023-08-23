@@ -7,6 +7,11 @@
 @endsection
 
 @section('content')
+@if(session('success'))
+    <div class="alert alert-success">
+        <li style="color: black;">{{ session('success') }}</li>
+    </div>
+@endif
     <div class="content mt-3">
         <div class="animated fadeIn">
             <br>

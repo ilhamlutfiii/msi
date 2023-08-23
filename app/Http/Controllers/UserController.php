@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+
     public function index()
     {
         $users = DB::table('view_user')->get();
+
         return view('index-user', compact('users'));
     }
 
@@ -21,7 +23,7 @@ class UserController extends Controller
         $bidang = DB::table('bidang')->get();
         $fungsi = DB::table('fungsi')->get();
         $jabatan = DB::table('jabatan')->get();
-        
+
         return view('tambah-user', compact('unit', 'bidang', 'fungsi', 'jabatan'));
     }
 
@@ -40,7 +42,7 @@ class UserController extends Controller
 
         return redirect('/user');
     }
-    
+
     public function edit($id)
     {
         $users = DB::table('view_user')->where('user_id', $id)->get();
@@ -48,7 +50,7 @@ class UserController extends Controller
         $bidang = DB::table('bidang')->get();
         $fungsi = DB::table('fungsi')->get();
         $jabatan = DB::table('jabatan')->get();
-        
+
         return view('edit-user', compact('users', 'unit', 'bidang', 'fungsi', 'jabatan'));
     }
 
@@ -101,30 +103,32 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        Session::flash('user_nid', $request->user_nid);
         $request->validate([
-            'user_nid'=>'required',
-            'password'=>'required'
+            'user_nid' => 'required',
+            'password' => 'required'
         ], [
-            'user_nid.required' => 'User NID wajib di isi',
-            'password.required' => 'Password wajib di isi',
+            'user_nid.required' => 'User NID wajib diisi',
+            'password.required' => 'Password wajib diisi',
         ]);
-        
-        $infologin = [
-            'user_nid'=> $request->user_nid,
-            'password'=> $request->password
+
+        $credentials = [
+            'user_nid' => $request->user_nid,
+            'password' => $request->password
         ];
 
-        if (Auth::attempt($infologin)) {
-            return redirect()->route('home');
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended(route('home'))->with('success', 'Selamat, Anda Berhasil Login.');
         } else {
-            return 'gagal';
+            return redirect()->route('login_page')->withErrors('login_failed', 'User NID atau Password salah');
         }
     }
-    
+
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/')->with('success', 'Anda telah keluar.');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login_page')->with('logout', 'Anda telah keluar.');
     }
 }
