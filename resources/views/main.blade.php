@@ -114,7 +114,7 @@
                         @auth
                         <div class="dropdown">
                             <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Selamat Datang {{ Auth::user()->user_nama }}</a>
+                                Selamat Datang, {{ Auth::user()->user_nama }}</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"><i class="fa fa-power-off"></i> Logout</a></li>
                             </ul>
