@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 
 class IpController extends Controller
@@ -24,7 +25,21 @@ class IpController extends Controller
 	
 	public function store(Request $request)
 	{
-		DB::table('ip')->insert([
+        Session::flash('ip_address', $request->ip_address);
+        Session::flash('bagian', $request->bagian);
+        Session::flash('keterangan', $request->keterangan);
+
+        $this->validate($request, [
+            'ip_address' => 'required',
+            'bagian' => 'required',
+            'keterangan' => 'required'
+        ],[
+			'ip_address.required' => 'IP Address wajib diisi',
+            'bagian.required' => 'Bagian wajib diisi',
+            'keterangan.required' => 'Keterangan wajib diisi',
+		]);
+
+        DB::table('ip')->insert([
 			'ip_address' => $request->ip_address,
             'bagian' => $request->bagian,
             'keterangan' => $request->keterangan,

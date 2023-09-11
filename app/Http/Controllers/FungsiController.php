@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class FungsiController extends Controller
 {
@@ -24,9 +25,21 @@ class FungsiController extends Controller
 
     public function store(Request $request)
     {
+        // Validasi data
+        Session::flash('fungsi_name', $request->fungsi_name);
+        Session::flash('unit_id', $request->unit_id);
+
+        $this->validate($request, [
+            'fungsi_name' => 'required',
+            'unit_id' => 'required',
+        ],[
+			'fungsi_name.required' => 'Nama Fungsi wajib diisi',
+            'unit_id.required' => 'Unit wajib diisi',
+		]);
+
         DB::table('fungsi')->insert([
             'unit_id' => $request->unit_id,
-            'fungsi_name' => $request->fungsi_nama
+            'fungsi_name' => $request->fungsi_name
         ]);
 
         return redirect('/fungsi');

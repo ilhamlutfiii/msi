@@ -29,16 +29,48 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $hashedPassword = bcrypt($request->password);
-
-        DB::table('users')->insert([
-            'user_nid' => $request->user_nid,
-            'user_nama' => $request->user_nama,
-            'jabatan_id' => $request->jabatan_id,
-            'bidang_id' => $request->bidang_id,
-            'fungsi_id' => $request->fungsi_id,
-            'password' => $hashedPassword,
+        // Mengambil semua data yang dibutuhkan dari request
+        $data = $request->only([
+            'user_nid',
+            'user_nama',
+            'jabatan_id',
+            'bidang_id',
+            'fungsi_id',
+            'password', // Termasuk field password
+            'cpass '
         ]);
+        
+        // Memeriksa apakah field "password" ada dalam permintaan
+        if ($request->has('password')&& $request->password !== '0' && $request->password !== null) {
+            $hashedPassword = bcrypt($request->password);
+            $data['password'] = $hashedPassword;
+        }
+
+        // Validasi data
+        Session::flash('user_nid', $request->user_nid);
+        Session::flash('user_nama', $request->user_nama);
+        Session::flash('password', $request->password);
+        Session::flash('cpass', $request->cpass);
+        
+        $this->validate($request, [
+            'user_nid' => 'required',
+            'user_nama' => 'required',
+            'bidang_id' => 'required',
+            'fungsi_id' => 'required',
+            'jabatan_id' => 'required',
+            'cpass' => 'same:password',
+        ],[
+            'user_nid.required' => 'User NID wajib diisi',
+            'user_nama.required' => 'Nama User wajib diisi',
+            'bidang_id.required' => 'Bidang wajib diisi',
+            'fungsi_id.required' => 'Fungsi wajib diisi',
+            'jabatan_id.required' => 'Jabatan wajib diisi',
+            'cpass.same:password' => 'Konfirmasi password harus sama dengan password',
+            
+        ]);
+
+        // Simpan data ke dalam database
+        DB::table('users')->insert($data);
 
         return redirect('/user');
     }
@@ -56,16 +88,32 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        $hashedPassword = bcrypt($request->password);
-
-        DB::table('users')->where('user_id', $request->user_id)->update([
-            'user_nid' => $request->user_nid,
-            'user_nama' => $request->user_nama,
-            'jabatan_id' => $request->jabatan_id,
-            'bidang_id' => $request->bidang_id,
-            'fungsi_id' => $request->fungsi_id,
-            'password' => $hashedPassword
+        $data = $request->only([
+            'user_nid',
+            'user_nama',
+            'jabatan_id',
+            'bidang_id',
+            'fungsi_id',
+            'password',
+            'cpass'
         ]);
+    
+        // Memeriksa apakah field "password" ada dalam permintaan
+        if ($request->has('password')&& $request->password !== '0' && $request->password !== null) {
+            $hashedPassword = bcrypt($request->password);
+            $data['password'] = $hashedPassword;
+        }
+    
+        // Validasi data
+        $this->validate($request, [
+            'user_nid' => 'required',
+            'user_nama' => 'required',
+            'cpass' => 'same:password'
+        ], [
+            'cpass.same' => 'Konfirmasi Password harus sama dengan password.'
+        ]);
+
+        DB::table('users')->where('user_id', $request->user_id)->update($data);
 
         return redirect('/user');
     }

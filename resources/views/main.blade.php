@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang=""> <!--<![endif]-->
+<html class="no-js" lang="en"> <!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
@@ -132,7 +132,13 @@
 
         @yield('breadcrumbs')
 
+        @include('pesan')
+
         @yield('content')
+
+        <button onclick="scrollToTop()" id="scrollToTopButton">
+            <i class="fa fa-arrow-up"></i>
+        </button>
 
         <!-- /#right-panel -->
 
@@ -160,54 +166,16 @@
         <script src="{{ asset('style/assets/js/lib/data-table/buttons.colVis.min.js')}}"></script>
         <script src="{{ asset('style/assets/js/lib/data-table/datatables-init.js')}}"></script>
         <script src="{{ asset('style/assets/js/select2.min.js')}}" defer></script>
+        <script src="{{ asset('style/assets/js/select2ok.js')}}" defer></script>
+        <script src="{{ asset('style/assets/js/scroll.js')}}" defer></script>
 
-
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#bootstrap-data-table-export').DataTable();
-                $('.selectuser').select2({
-                    language: {
-                        noResults: function() {
-                            return "Nama User yang anda cari tidak ditemukan, ingin menambahkan User baru? <a href='" + "{{ route('tambah_user') }}" + "' class='select3'>Klik Disini</a>";
-                        }
-                    },
-                    escapeMarkup: function(markup) {
-                        return markup;
-                    },
-                });
-                $('.selectip').select2({
-                    language: {
-                        noResults: function() {
-                            return "Alamat IP yang anda cari tidak ditemukan, ingin menambahkan IP baru? <a href='" + "{{ route('tambah_ip') }}" + "' class='select3'>Klik Disini</a>";
-                        }
-                    },
-                    escapeMarkup: function(markup) {
-                        return markup;
-                    },
-                });
-                $('.selectkomp').select2({
-                    language: {
-                        noResults: function() {
-                            return "ID Perangkat yang anda cari tidak ditemukan, ingin menambahkan ID Perangkat baru? <a href='" + "{{ route('tambah_komputer') }}" + "' class='select3'>Klik Disini</a>";
-                        }
-                    },
-                    escapeMarkup: function(markup) {
-                        return markup;
-                    },
-                });
-                $('.selectfungsi').select2({
-                    language: {
-                        noResults: function() {
-                            return "Fungsi yang anda cari tidak ditemukan, ingin menambahkan Fungsi baru? <a href='" + "{{ route('tambah_fungsi') }}" + "' class='select3'>Klik Disini</a>";
-                        }
-                    },
-                    escapeMarkup: function(markup) {
-                        return markup;
-                    },
-                });
-            });
+        <script>
+            var tambahUserRoute = "{{ route('tambah_user') }}";
+            var tambahIpRoute = "{{ route('tambah_ip') }}";
+            var tambahKomputerRoute = "{{ route('tambah_komputer') }}";
+            var tambahFungsiRoute = "{{ route('tambah_fungsi') }}";
         </script>
+
         <style>
             .select3 {
                 color: blue;

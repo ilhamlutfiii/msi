@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 class pinjamController extends Controller
 {
     public function index()
@@ -24,13 +25,34 @@ class pinjamController extends Controller
 
     public function store(Request $request)
     {
-        $no_tiket = substr($request->no_tiket, 2);
+        // Validasi data
+        Session::flash('user_id', $request->user_id);
+        Session::flash('komp_id', $request->komp_id);
+        Session::flash('tgl_pinjam', $request->tgl_pinjam);
+        Session::flash('tgl_kembali', $request->tgl_kembali);
+        Session::flash('no_tiket', $request->no_tiket);
+        
+        $this->validate($request, [
+            'user_id' => 'required',
+            'komp_id' => 'required',
+            'tgl_pinjam' => 'required',
+            'tgl_kembali' => 'required',
+            'no_tiket' => 'required',
+        ],[
+            'user_id.required' => 'User ID wajib diisi',
+            'komp_id.required' => 'ID Perangkat wajib diisi',
+            'tgl_pinjam.required' => 'Tanggal Pinjam wajib diisi',
+            'tgl_kembali.required' => 'Tanggal Kembali wajib diisi',
+            'no_tiket.required' => 'No Tiket wajib diisi',
+        ]);
+
+        $no_tiket = $request->no_tiket;
         DB::table('pinjam')->insert([
             'user_id' => $request->user_id,
             'komp_id' => $request->komp_id,
             'tgl_pinjam' => $request->tgl_pinjam,
             'tgl_kembali' => $request->tgl_kembali,
-            'no_tiket' => $no_tiket
+            'no_tiket' => $no_tiket,
             
         ]);
 
@@ -66,7 +88,7 @@ class pinjamController extends Controller
 
     public function update(Request $request)
     {
-        $no_tiket = substr($request->no_tiket, 2);
+        $no_tiket = $request->no_tiket;
         DB::table('pinjam')->where('pinjam_id',$request->pinjam_id)->update([
             'user_id' => $request->user_id,
             'komp_id' => $request->komp_id,

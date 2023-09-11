@@ -33,8 +33,7 @@
 	@foreach($inventaris as $i)
 	<form action="/inventaris/update" method="post" class="">
 		{{ csrf_field() }}
-		<div class="form-group"><label class="form-control-label">ID Pinjam INV :</label><input type="text" name="inventaris_id" class="form-control" value="{{ $i->inventaris_id }}"readonly></div>
-
+		
 		<div class="form-group">
             <label class="form-control-label">Nama User :</label>
         		<select name="user_id" id="user" class="form-control selectuser">
@@ -55,7 +54,7 @@
         		</select>
     	</div>
 		
-		<div class="form-group"><label class="form-control-label">Tanggal Pinjam :</label><input type="date" name="tgl_pinjam" class="form-control" value="{{ $i->tgl_pinjam }}"></div>
+		<div class="form-group"><label class="form-control-label">Tanggal Pinjam :</label><input type="date" name="tgl_pinjam" class="form-inline" value="{{ $i->tgl_pinjam }}"></div>
 
 		<button type="submit" class="btn btn-primary btn-sm">
 			<i class="fa fa-dot-circle-o"></i> Submit
@@ -63,6 +62,7 @@
 		<button type="reset" class="btn btn-danger btn-sm">
 			<i class="fa fa-ban"></i> Reset
 		</button>
+		<input type="hidden" name="inventaris_id" class="form-control" value="{{ $i->inventaris_id }}"readonly></div>
 	</form>
 	@endforeach
 </div>

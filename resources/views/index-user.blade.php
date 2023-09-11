@@ -38,10 +38,9 @@
 				</div>
 			</form>
 		</div>
-		<table border="1" class="table table-striped table-bordered">
-			<tr>
-				<th>User ID</th>
-				<th>User NID</th>
+		<table border="1" class="table-bordered fixed-th">
+			<thead><tr>
+				<th>User_NID</th>
 				<th>Nama User</th>
 				<th>Password</th>
 				<th>Jabatan</th>
@@ -49,13 +48,13 @@
 				<th>Fungsi</th>
 				<th>Unit</th>
 				<th>Opsi</th>
-			</tr>
+			</tr></thead>
 			@foreach($users as $u)
 			<tr>
-				<td>{{ $u->user_id }}</td>
+				<!-- <td>{{ $u->user_id }}</td> -->
 				<td>{{ $u->user_nid }}</td>
 				<td>{{ $u->user_nama }}</td>
-				<td>{{ $u->password }}</td>
+				<td>{{ $u->cpass }}</td>
 				<td>{{ $u->jabatan_name }}</td>
 				<td>{{ $u->bidang_name }}</td>
 				<td>{{ $u->fungsi_name }}</td>

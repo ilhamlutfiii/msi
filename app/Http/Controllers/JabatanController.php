@@ -22,6 +22,12 @@ class JabatanController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'jabatan_name' => 'required',
+        ],[
+			'jabatan_name.required' => 'Nama Jabatan wajib diisi',
+		]);
+
         DB::table('jabatan')->insert([
             'jabatan_name' => $request->jabatan_nama
         ]);

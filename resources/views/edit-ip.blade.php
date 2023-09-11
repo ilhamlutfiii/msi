@@ -33,7 +33,6 @@
 	@foreach($ip as $i)
 	<form action="/ip/update" method="post" class="">
 		{{ csrf_field() }}
-			<div class="form-group"><label class="form-control-label">IP ID</label><input type="text" name="ip_id" class="form-control" value="{{ $i->ip_id }}" readonly></div>
 			
 			<div class="form-group"><label class="form-control-label">IP Address :</label><input type="text" name="ip_address" class="form-control" value="{{ $i->ip_address }}"></div>
 			
@@ -47,6 +46,8 @@
 			<button type="reset" class="btn btn-danger btn-sm">
 				<i class="fa fa-ban"></i> Reset
 			</button>
+			<input type="hidden" name="ip_id" class="form-control" value="{{ $i->ip_id }}" readonly>
+			
 	</form>
 	@endforeach
 </div>

@@ -33,7 +33,6 @@
 	@foreach($fungsi as $f)
 	<form action="/fungsi/update" method="post" class="">
 		{{ csrf_field() }}
-		<div class="form-group"><label class="form-control-label">Fungsi id</label><input type="text" name="fungsi_id" class="form-control" value="{{ $f->fungsi_id }}" readonly></div>
 		
 		<div class="form-group"><label class="form-control-label">Nama fungsi :</label><input type="text" name="fungsi_name" class="form-control" value="{{ $f->fungsi_name }}"></div>
 		
@@ -52,6 +51,8 @@
 		<button type="reset" class="btn btn-danger btn-sm">
 			<i class="fa fa-ban"></i> Reset
 		</button>
+		<input type="hidden" name="fungsi_id" class="form-control" value="{{ $f->fungsi_id }}" readonly>
+		
 	</form>
 	@endforeach
 </div>

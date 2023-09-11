@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 class SwitchController extends Controller
 {
@@ -25,17 +25,41 @@ class SwitchController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'swtch_id' => 'required|unique:switch',
-            // Tambahkan aturan validasi untuk kolom lain jika diperlukan
+        // Validasi data
+        Session::flash('switch_id', $request->switch_id);
+        Session::flash('port', $request->port);
+        Session::flash('nama', $request->nama);
+        Session::flash('tipe', $request->tipe);
+        Session::flash('sn', $request->sn);
+        Session::flash('letak', $request->letak);
+        Session::flash('mac', $request->mac);
+        Session::flash('macc', $request->macc);
+        Session::flash('ip_id', $request->ip_id);
+        Session::flash('referensi', $request->referensi);
+        
+        $this->validate($request, [
+            'switch_id' => 'required',
+            'port' => 'required',
+            'nama' => 'required',
+            'tipe' => 'required',
+            'sn' => 'required',
+            'letak' => 'required',
+            'mac' => 'required',
+            'macc' => 'required',
+            'ip_id' => 'required',
+            'referensi' => 'required'
+        ],[
+            'switch_id.required' => 'Switch ID wajib diisi',
+            'port.required' => 'Port wajib diisi',
+            'nama.required' => 'Nama wajib diisi',
+            'tipe.required' => 'Tipe wajib diisi',
+            'sn.required' => 'SN wajib diisi',
+            'letak.required' => 'Letak wajib diisi',
+            'mac.required' => 'Mac wajib diisi',
+            'macc.required' => 'Macc wajib diisi',
+            'ip_id.required' => 'IP Address wajib diisi',
+            'referensi.required' => 'Referensi wajib diisi'
         ]);
-    
-        // Cek apakah validasi berhasil
-        if ($validator->fails()) {
-            return redirect('/switch/tambah_switch')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
         DB::table('switch')->insert([
             'switch_id' => $request->switch_id,
             'port' => $request->port,

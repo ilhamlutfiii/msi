@@ -31,12 +31,12 @@
 
 			<div class="form-group">
 				<label class="form-control-label">Tanggal Kembali :</label>
-				<input type="date" name="tgl_kembali" class="form-control" required>
+				<input type="date" name="tgl_kembali" class="form-inline" value="{{ Session::get('tgl_kembali') }}">
 			</div>
 
 			<div class="form-group">
 				<label class="form-control-label">Keterangan :</label>
-				<input type="text" name="keterangan" class="form-control" required>
+				<textarea type="text" name="keterangan" class="form-control">{{ Session::get('keterangan') }}</textarea>
 			</div>
 			<button type="submit" class="btn btn-danger"><i class="fa fa-recycle"></i> Kembalikan</button>
 			<a href="/inventaris" class="btn btn-success"><i class="fa fa-reply"></i> Batal</a>

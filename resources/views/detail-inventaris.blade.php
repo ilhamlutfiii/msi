@@ -31,9 +31,6 @@
 			<table border="80" class="table table-striped table-bordered">
             @foreach($inventaris as $i)
                         <tr>
-                            <td><strong>ID Pinjam INV</strong><td>{{ $i->inventaris_id }}</td></td>
-                        </tr>
-                        <tr>
                             <td><strong>Nama User</strong><td> {{ $i->user_nama }}</td></td>
                         </tr>
 						<tr>

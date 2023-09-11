@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 class KomputerController extends Controller
 {
     public function index()
@@ -26,15 +27,37 @@ class KomputerController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'id_perangkat' => 'required|unique:komputer,id_perangkat',
+        Session::flash('id_perangkat', $request->id_perangkat);
+        Session::flash('hostname', $request->hostname);
+        Session::flash('merk_type', $request->merk_type);
+        Session::flash('port', $request->port);
+        Session::flash('kategori', $request->kategori);
+        Session::flash('user_id', $request->user_id);
+        Session::flash('ip_id', $request->ip_id);
+        Session::flash('lokasi', $request->lokasi);
+        Session::flash('referensi', $request->referensi);
+        Session::flash('os_id', $request->os_id);
+        Session::flash('inventaris', $request->inventaris);
+        Session::flash('status', $request->status);
+        Session::flash('penggunaan', $request->penggunaan);
+        Session::flash('keterangan', $request->keterangan);
+        Session::flash('mac', $request->mac);
+        Session::flash('macc', $request->macc);
+        Session::flash('tahun', $request->tahun);
+
+        $this->validate($request, [
+            'id_perangkat' => 'required',
+            'kategori' => 'required',
+            'user_id' => 'required',
+            'ip_id' => 'required',
+            'os_id' => 'required',
+        ],[
+            'id_perangkat.required' => 'ID Perangkat wajib diisi',
+            'kategori.required' => 'Kategori wajib diisi',
+            'user_id.required' => 'Nama User wajib diisi',
+            'ip_id.required' => 'IP Address wajib diisi',
+            'os_id.required' => 'OS -- Ram/HDD wajib diisi',
         ]);
-    
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
         DB::table('komputer')->insert([
             'id_perangkat' => $request->id_perangkat,
             'hostname' => $request->hostname,
@@ -94,7 +117,7 @@ class KomputerController extends Controller
         $os = DB::table('os')->get();
 		$user = DB::table('users')->get();
 		
-        return view('edit-komputer',['komputer' => $komputer],['ip' => $ip,'os' => $os,'user' => $user]);
+        return view('edit-komputer', compact('komputer', 'ip', 'os', 'user'));
     
     }
 

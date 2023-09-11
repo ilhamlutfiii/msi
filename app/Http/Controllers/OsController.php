@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 
 class OsController extends Controller
@@ -24,7 +25,18 @@ class OsController extends Controller
 	
 	public function store(Request $request)
 	{
-		DB::table('os')->insert([
+        Session::flash('os_name', $request->os_name);
+        Session::flash('ram_hdd', $request->ram_hdd);
+        
+        $this->validate($request, [
+            'os_name' => 'required',
+            'ram_hdd' => 'required'
+        ],[
+			'os_name.required' => 'Nama OS wajib diisi',
+            'ram_hdd.required' => 'Ram/HDD wajib diisi',
+		]);
+        
+        DB::table('os')->insert([
 			'os_name' => $request->os_name,
             'ram_hdd' => $request->ram_hdd
 		]);
@@ -41,9 +53,9 @@ class OsController extends Controller
 	
     public function update(Request $request)
     {
-        DB::table('os')->where('os_id',$request->id)->update([
+        DB::table('os')->where('os_id',$request->os_id)->update([
             'os_name' => $request->os_name,
-            'ram_hdd' => $request->ram_hdd
+            'ram_hdd' => $request->ram_hdd,
         ]);
        return redirect('/os');
     }

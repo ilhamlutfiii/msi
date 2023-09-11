@@ -28,6 +28,12 @@ class UnitController extends Controller
 	// method untuk insert data ke table unit
 	public function store_unit(Request $request)
 	{
+		// Validasi data
+        $this->validate($request, [
+            'unit_name' => 'required',
+        ],[
+			'unit_name.required' => 'Nama Unit wajib diisi',
+		]);
 		// insert data ke table unit
 		DB::table('unit')->insert([
 			'unit_name' => $request->unit_name

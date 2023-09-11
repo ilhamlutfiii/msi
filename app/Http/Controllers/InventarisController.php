@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class InventarisController extends Controller
 {
@@ -22,6 +23,21 @@ class InventarisController extends Controller
 
     public function store(Request $request)
     {
+        // Validasi data
+        Session::flash('user_id', $request->user_id);
+        Session::flash('komp_id', $request->komp_id);
+        Session::flash('tgl_pinjam', $request->tgl_pinjam);
+        
+        $this->validate($request, [
+            'user_id' => 'required',
+            'komp_id' => 'required',
+            'tgl_pinjam' => 'required',
+        ],[
+            'user_id.required' => 'User ID wajib diisi',
+            'komp_id.required' => 'ID Perangkat wajib diisi',
+            'tgl_pinjam.required' => 'Tanggal Pinjam wajib diisi',
+        ]);
+        
         DB::table('inventaris')->insert([
             'user_id' => $request->user_id,
             'komp_id' => $request->komp_id,
@@ -88,6 +104,21 @@ class InventarisController extends Controller
 
     public function storeLog(Request $request, $id)
     {
+        // Validasi data
+        Session::flash('tgl_kembali', $request->tgl_kembali);
+        Session::flash('keterangan', $request->keterangan);
+        
+        
+        $this->validate($request, [
+            'tgl_kembali' => 'required',
+            'keterangan' => 'required',
+            
+        ],[
+            'tgl_kembali.required' => 'Tanggal Kembali wajib diisi',
+            'keterangan.required' => 'Keterangan wajib diisi',
+            
+        ]);
+        
         DB::table('log')->insert([
             'user_id' => $request->user_id,
             'komp_id' => $request->komp_id,

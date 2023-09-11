@@ -34,7 +34,7 @@
 		<form action="/bidang/update" method="post" class="form-inline">
 			{{ csrf_field() }}
 			<input type="hidden" name="id" value="{{ $b->bidang_id }}">
-			Nama bidang : &nbsp; &nbsp; <input type="text" required="required" name="bidang_nama" value="{{ $b->bidang_name }}"> <br/> &nbsp; &nbsp; &nbsp;
+			Nama bidang : &nbsp; &nbsp; <input type="text" required="required" name="bidang_name" value="{{ $b->bidang_name }}"> <br/> &nbsp; &nbsp; &nbsp;
 			<input type="submit" value="Simpan Data" class="btn btn-primary btn-sm">
 		</form>
 		@endforeach
