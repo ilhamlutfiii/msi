@@ -277,7 +277,7 @@ body.open .navbar .navbar-brand.hidden {
       padding-right: 0;
       text-align: center; }
       .open aside.left-panel .navbar .navbar-brand.hidden img {
-        max-width: 30px;
+        max-width: 50px;
         margin: 0 auto; }
     .open aside.left-panel .navbar .navbar-brand.d-md-none {
       display: block !important;

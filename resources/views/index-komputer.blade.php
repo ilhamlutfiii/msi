@@ -28,22 +28,25 @@
 <div class="content mt-3">
 	<div class="animated fadeIn">
 		<div class="d-flex justify-content-between mb-3">
-			<a href="{{ route('tambah_komputer') }}" class="btn btn-info"> + Tambah Komputer Baru</a>
+			<a href="{{ route('tambah_komputer') }}" class="btn btn-info"> 
+				<span class="d-none d-sm-inline"><i class="fa fa-plus"> Tambah Komputer Baru</i></span>
+        		<span class="d-inline d-sm-none"><i class="fa fa-plus"></i></span>
+			</a>
 			<form action="{{ route('search_komputer') }}" method="GET" class="form-inline">
 				<div class="input-group">
 					<input type="text" name="keyword" class="form-control" placeholder="Cari Komputer...">
 					<div class="input-group-append">
-						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Cari</button>
+						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
 					</div>
 				</div>
 			</form>
 		</div>
-		<table border="1" class="table-bordered fixed-th">
+		<div class="table-container">
+		<table border="1" class="table table-bordered table-responsive fixed-header-table">
 			<thead>
 				<tr>
 					<th>ID Perangkat</th>
 					<th>Hostname</th>
-					<th>Keterangan</th>
 					<th>Nama User</th>
 					<th>Opsi</th>
 				</tr>
@@ -52,7 +55,6 @@
 			<tr>
 				<td>{{ $k->id_perangkat }}</td>
 				<td>{{ $k->hostname}}</td>
-				<td>{{ $k->keterangan}}</td>
 				<td>{{ $k->user_nama}}</td>
 				<td>
 					<a href="../komputer/detail/{{ $k->komp_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
@@ -66,6 +68,7 @@
 			</tr>
 			@endforeach
 		</table>
+		</div>
 	</div><!-- .content -->
 </div>
 @endsection

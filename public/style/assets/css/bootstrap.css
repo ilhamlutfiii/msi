@@ -3938,6 +3938,7 @@ tbody.collapse.show {
   .navbar-expand-sm > .container-fluid {
     padding-right: 0;
     padding-left: 0;
+    
   }
 }
 
@@ -3950,6 +3951,7 @@ tbody.collapse.show {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
+    
   }
   .navbar-expand-sm .navbar-nav {
     -webkit-box-orient: horizontal;

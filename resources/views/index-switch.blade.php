@@ -28,23 +28,26 @@
 <div class="content mt-3">
 	<div class="animated fadeIn">
 		<div class="d-flex justify-content-between mb-3">
-			<a href="{{ route('tambah_switch') }}" class="btn btn-info"> + Tambah Switch Baru</a>
+			<a href="{{ route('tambah_switch') }}" class="btn btn-info"> 
+				<span class="d-none d-sm-inline"><i class="fa fa-plus"> Tambah Insfrastruktur Baru </i></span>
+        		<span class="d-inline d-sm-none"><i class="fa fa-plus"></i></span>
+			</a>
 			<form action="{{ route('search_switch') }}" method="GET" class="form-inline">
 				<div class="input-group">
 					<input type="text" name="keyword" class="form-control" placeholder="Cari Switch...">
 					<div class="input-group-append">
-						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Cari</button>
+						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
 					</div>
 				</div>
 			</form>
 		</div>
-		<table border="1" class="table-bordered fixed-th">
+		<div class="table-container">
+		<table border="1" class="table table-bordered table-responsive fixed-header-table">
 			<thead><tr>
 				<th>Switch ID</th>
 				<th>Port</th>
 				<th>Nama</th>
 				<th>Tipe</th>
-				<th>SN</th>
 				<th>Opsi</th>
 			</tr></thead>
 			@foreach($switch as $s)
@@ -53,7 +56,6 @@
 				<td>{{ $s->port }}</td>
 				<td>{{ $s->nama }}</td>
 				<td>{{ $s->tipe }}</td>
-				<td>{{ $s->sn }}</td>
 				<td>
 					<a href="../switch/detail/{{ $s->switch_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a> 
 					|
@@ -64,6 +66,7 @@
 			</tr>
 			@endforeach
 		</table>
+		</div>
 	</div><!-- .content -->
 </div>
 @endsection

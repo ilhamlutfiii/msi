@@ -11,7 +11,7 @@
     <title>MSI - @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css' async>
-    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="{{ asset('style/images/logo2.png')}}">
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -36,8 +36,8 @@
 </head>
 
 <body>
-    <!-- Left Panel -->
-
+   
+<!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
 
@@ -58,30 +58,30 @@
                     <h3 class="menu-title">Manage</h3><!-- /.menu-title -->
 
                     <li class="menu-item-has-children active dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>User</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>User</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="{{  url('/unit') }}">Unit</a></li>
-                            <li><i class="fa fa-table"></i><a href="{{  url('/jabatan') }}">Jabatan</a></li>
-                            <li><i class="fa fa-table"></i><a href="{{  url('/bidang') }}">Bidang</a></li>
-                            <li><i class="fa fa-table"></i><a href="{{  url('/fungsi') }}">Fungsi</a></li>
-                            <li><i class="fa fa-table"></i><a href="{{  url('/user') }}">User</a></li>
+                            <li><i class="fa fa-industry"></i><a href="{{  url('/unit') }}">Unit</a></li>
+                            <li><i class="fa fa-industry"></i><a href="{{  url('/jabatan') }}">Jabatan</a></li>
+                            <li><i class="fa fa-industry"></i><a href="{{  url('/bidang') }}">Bidang</a></li>
+                            <li><i class="fa fa-industry"></i><a href="{{  url('/fungsi') }}">Fungsi</a></li>
+                            <li><i class="fa fa-user"></i><a href="{{  url('/user') }}">User</a></li>
                         </ul>
 
                     </li>
                     <li class="menu-item-has-children active dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Network</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-desktop"></i>Network</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="{{  url('/ip') }}">IP</a></li>
-                            <li><i class="fa fa-table"></i><a href="{{  url('/switch') }}">Insfrastruktur</a></li>
-                            <li><i class="fa fa-table"></i><a href="{{  url('/os') }}">OS</a></li>
-                            <li><i class="fa fa-table"></i><a href="{{  url('/komputer') }}">Komputer</a></li>
+                            <li><i class="fa fa-desktop"></i><a href="{{  url('/ip') }}">IP</a></li>
+                            <li><i class="fa fa-desktop"></i><a href="{{  url('/switch') }}">Insfrastruktur</a></li>
+                            <li><i class="fa fa-desktop"></i><a href="{{  url('/os') }}">OS</a></li>
+                            <li><i class="fa fa-desktop"></i><a href="{{  url('/komputer') }}">Komputer</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children active dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Peminjaman</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Peminjaman</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="{{  url('/pinjam') }}">Sementara</a></li>
-                            <li><i class="fa fa-table"></i><a href="{{  url('/inventaris') }}">Inventaris</a></li>
+                            <li><i class="fa fa-laptop"></i><a href="{{  url('/pinjam') }}">Sementara</a></li>
+                            <li><i class="fa fa-laptop"></i><a href="{{  url('/inventaris') }}">Inventaris</a></li>
                         </ul>
                     </li>
 
@@ -188,6 +188,8 @@
                 /* Garis bawah saat hover */
             }
         </style>
+    </div>
+</div>
 </body>
 
 </html>

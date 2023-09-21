@@ -77,6 +77,7 @@ Route::middleware(['isLogin'])->group(function () {
     Route::get('/user/hapus/confirm/{id}', '\App\Http\Controllers\UserController@hapusConfirm')->name('user.hapus.confirm');
     Route::get('/user/search', '\App\Http\Controllers\UserController@search')->name('search_user');
     Route::get('/fungsi/tambah_fungsi', '\App\Http\Controllers\FungsiController@tambah_fungsi')->name('tambah_fungsi');
+    Route::get('/user/detail/{id}', '\App\Http\Controllers\UserController@detail');
 
     //crud ip
     Route::get('/ip', '\App\Http\Controllers\IpController@index');

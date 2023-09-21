@@ -46,7 +46,7 @@
                             <td><strong>Tanggal Kembali</strong><td> {{ $p->tgl_kembali }}</td></td>
                         </tr>
                         <tr>
-                            <td><strong>No Tiket</strong><td> R-{{ $p->no_tiket }}</td></td>
+                            <td><strong>No Tiket</strong><td><a href="https://helpdesk.plnnusantarapower.co.id/pages/UI.php?operation=details&class=UserRequest&id={{ $p->no_tiket - 43 }}&c[menu]=UserRequest%3ARequestsDispatchedToMyTeams" class="link-no-tiket" target="_blank">R-{{ $p->no_tiket }}</td></td>
                         </tr>                        
                         <tr>
                             <td>
@@ -59,3 +59,28 @@
 		</div><!-- .content -->
     </div>
 @endsection
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		const links = document.querySelectorAll(".link-no-tiket");
+
+		links.forEach(link => {
+			link.addEventListener("click", function() {
+				this.classList.add("clicked");
+			});
+		});
+	});
+</script>
+<style>
+	.link-no-tiket {
+		color: #007bff;
+	}
+
+	.link-no-tiket.clicked {
+		color: #007bff;
+	}
+
+	.link-no-tiket:hover {
+		color: #007bff;
+		text-decoration: underline;
+	}
+</style>

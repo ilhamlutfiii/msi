@@ -15,12 +15,13 @@
 				<div class="input-group">
 					<input type="text" name="keyword" class="form-control" placeholder="Cari Log...">
 					<div class="input-group-append">
-						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Cari</button>
+						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
 					</div>
 				</div>
 			</form>
 		</div>
-		<table border="1" class="table-bordered fixed-th">
+		<div class="table-container">
+		<table border="1" class="table table-bordered table-responsive fixed-header-table">
 			<thead><tr>
 				<th>Nama User</th>
 				<th>NID User</th>
@@ -38,6 +39,7 @@
 			</tr>
 			@endforeach
 		</table>
+		</div>
 	</div><!-- .content -->
 </div>
 @endsection

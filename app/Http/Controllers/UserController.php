@@ -75,6 +75,18 @@ class UserController extends Controller
         return redirect('/user');
     }
 
+    public function detail($id)
+    {
+        $user = DB::table('view_user')->where('user_id',$id)->get();
+		
+        $jabatan = DB::table('jabatan')->get();
+        $bidang = DB::table('bidang')->get();
+		$fungsi = DB::table('fungsi')->get();
+        
+        return view('detail-user',['user' => $user],['jabatan' => $jabatan,'bidang' => $bidang],['fungsi' => $fungsi]);
+    
+    }
+
     public function edit($id)
     {
         $users = DB::table('view_user')->where('user_id', $id)->get();

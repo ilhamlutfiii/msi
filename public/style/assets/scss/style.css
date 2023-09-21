@@ -1091,7 +1091,7 @@ aside.left-panel {
     font-weight: 600;
 }
 .navbar .navbar-brand img {
-    max-width: 200px;
+    max-width: 180px;
 }
 .navbar .navbar-brand.hidden {
     display: none;
@@ -2827,7 +2827,7 @@ header .form-inline .search-form.close {
     display: none;
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    right: 40px;
     padding: 10px;
     font-size: 16px;
     color: red;
@@ -2838,45 +2838,51 @@ header .form-inline .search-form.close {
 }
 
 /* CSS for Fixed Table Header in index4.html */
-.fixed-th {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 2px 3px 1px #ddd;
-    table-layout: fixed;
-    border: 10px solid #fff;
+/* Add this CSS to your stylesheet */
+.fixed-header-container {
+    max-height: 400px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
-.fixed-th thead {
+.fixed-header-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.fixed-header-table thead {
     background-color: #333;
     color: #fff;
     position: sticky;
     top: 0;
 }
 
-.fixed-th th,
-.fixed-th td {
+.fixed-header-table th,
+.fixed-header-table td {
     vertical-align: top;
-    padding: 10px ;
+    padding: 10px;
     text-align: left;
-    width: auto; /* Adjust the width as needed */
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
-.fixed-th th + th,
-.fixed-th td + td {
+.fixed-header-table th + th,
+.fixed-header-table td + td {
     border-left: 1px solid #ddd;
 }
 
-.fixed-th th:nth-child(1),
-.fixed-th td:nth-child(1) {
+/* Define specific widths for your columns if necessary */
+.fixed-header-table th:nth-child(1),
+.fixed-header-table td:nth-child(1) {
     min-width: 30px;
 }
 
-.fixed-th th:nth-child(2),
-.fixed-th td:nth-child(2) {
+.fixed-header-table th:nth-child(2),
+.fixed-header-table td:nth-child(2) {
     width: 150px;
 }
 
-.fixed-th th:nth-child(3),
-.fixed-th td:nth-child(3) {
+.fixed-header-table th:nth-child(3),
+.fixed-header-table td:nth-child(3) {
     width: 250px;
 }
+

@@ -28,17 +28,21 @@
 <div class="content mt-3">
 	<div class="animated fadeIn">
 		<div class="d-flex justify-content-between mb-3">
-			<a href="{{ route('tambah_bidang') }}" class="btn btn-info"> + Tambah Bidang Baru</a>
+			<a href="{{ route('tambah_bidang') }}" class="btn btn-info">
+				<span class="d-none d-sm-inline"><i class="fa fa-plus"> Tambah Bidang Baru </i></span>
+        		<span class="d-inline d-sm-none"><i class="fa fa-plus"></i></span>
+			</a>
 			<form action="{{ route('search_bidang') }}" method="GET" class="form-inline">
 				<div class="input-group">
 					<input type="text" name="keyword" class="form-control" placeholder="Cari Bidang...">
 					<div class="input-group-append">
-						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Cari</button>
+						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
 					</div>
 				</div>
 			</form>
 		</div>
-		<table border="1" class="table-bordered fixed-th">
+		<div class="table-container">
+		<table border="1" class="table table-bordered table-responsive fixed-header-table">
 			<thead>
 				<tr>
 					<th>Nama bidang</th>
@@ -58,6 +62,7 @@
 				@endforeach
 			</tbody>
 		</table>
+		</div>
 	</div><!-- .content -->
 </div>
 @endsection

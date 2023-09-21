@@ -28,25 +28,25 @@
 <div class="content mt-3">
 	<div class="animated fadeIn">
 		<div class="d-flex justify-content-between mb-3">
-			<a href="{{ route('tambah_user') }}" class="btn btn-info"> + Tambah User Baru</a>
+			<a href="{{ route('tambah_user') }}" class="btn btn-info"> 
+				<span class="d-none d-sm-inline"><i class="fa fa-plus"> Tambah User Baru </i></span>
+        		<span class="d-inline d-sm-none"><i class="fa fa-plus"></i></span>
+			</a>
 			<form action="{{ route('search_user') }}" method="GET" class="form-inline">
 				<div class="input-group">
 					<input type="text" name="keyword" class="form-control" placeholder="Cari User...">
 					<div class="input-group-append">
-						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Cari</button>
+						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
 					</div>
 				</div>
 			</form>
 		</div>
-		<table border="1" class="table-bordered fixed-th">
+		<div class="table-container">
+		<table border="1" class="table table-bordered table-responsive fixed-header-table">
 			<thead><tr>
 				<th>User_NID</th>
 				<th>Nama User</th>
 				<th>Password</th>
-				<th>Jabatan</th>
-				<th>Bidang</th>
-				<th>Fungsi</th>
-				<th>Unit</th>
 				<th>Opsi</th>
 			</tr></thead>
 			@foreach($users as $u)
@@ -55,11 +55,9 @@
 				<td>{{ $u->user_nid }}</td>
 				<td>{{ $u->user_nama }}</td>
 				<td>{{ $u->cpass }}</td>
-				<td>{{ $u->jabatan_name }}</td>
-				<td>{{ $u->bidang_name }}</td>
-				<td>{{ $u->fungsi_name }}</td>
-				<td>{{ $u->unit_name }}</td>
 				<td>
+					<a href="../user/detail/{{ $u->user_id }}" class="btn btn-info"><i class="fa fa-eye"> Detail</i></a>
+					|
 					<a href="../user/edit/{{ $u->user_id }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
 					@if(Auth::check() && Auth::user()->user_nama != $u->user_nama)
 					|
@@ -69,6 +67,7 @@
 			</tr>
 			@endforeach
 		</table>
+		</div>
 	</div><!-- .content -->
 </div>
 @endsection
